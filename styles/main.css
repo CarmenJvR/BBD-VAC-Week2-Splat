@@ -186,3 +186,13 @@ span.psw {
   font-size: 20px;
   font-style: oblique;
 }
+
+/* */
+#loginForm{
+  width: 60%;
+  background-color: rgba(52, 235, 88,0.2);
+  margin-top: 30px;
+  border: solid gray 0.5px;
+  border-radius: 10px;
+  padding: 30px;
+}
