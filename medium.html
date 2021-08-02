@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Splat</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"> 
+        <link rel="stylesheet" href="styles/map_styles.css"></style>
+        <link rel="stylesheet" href="styles/main.css"></style>
+
+    </head>
+   
+    <body>
+
+        <div class="nav">
+            
+            <a  href="index.html">Easy Level</a>
+            <a class="active" href="medium.html">Medium Level</a>
+            <a  href="hard.html">Hard Level</a>
+            <a href="dark.html">Dark Souls Level</a>
+          
+        </div>
+
+    <table style="width:100%">
+
+        <tr>
+            <td>
+        <div class="row">
+
+            <div class="column">
+                <div id="blocklyDiv"></div>
+            </div>
+
+            <div class="column">
+                <div id="map" class="map"></div>
+            </div>
+
+        </div>
+
+   
+        <div class="action-buttons">
+            <button id="start" class = "button1">Start</button>
+            <button id="reset" class = "button1">Stop</button>
+            <button id="preview" class = "button1">Preview</button>
+        </div>
+    </td>
+
+    <br>
+    <br>
+        <!-- BLOCKLY TOOLBOX -->
+        <xml id="toolbox" style="display: none">
+            <block type="start"></block>
+            <block type="walk"></block>
+            <block type="turn"></block>
+            <block type="deposit"></block>
+            <block type="repeat_until"></block>
+            <block type="if_do_else"></block>
+            <block type="not"></block>
+            <block type="and"></block>
+            <block type="or"></block>
+            <block type="reached_end"></block>
+            <block type="is_color"></block>
+            <block type="is_tile_ahead"></block>
+            <block type="is_tile_current"></block>
+            
+        </xml>
+
+       
+
+    </tr>
+        </table>
+    </table>
+
+        <script src="https://unpkg.com/blockly"></script>
+        <script src="blockly/custom_blocks.js"></script> 
+        <script src="blockly/injector.js"></script>
+        <script type="module" src="./scripts/medium.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,19 @@
+.map {
+    border-style: solid;
+    border-width: 4px;
+    background-color: white;
+    width: 584px;
+    height: 584px;
+
+}
+
+.action-buttons {
+    padding-top: 20px;
+}
+
+.image {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    float: left;
+}
