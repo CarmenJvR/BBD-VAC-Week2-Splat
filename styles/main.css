@@ -6,6 +6,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
+    background-image: url("../assets/backgound1.jpg");
 }
 
 /* Create 2 equal colums */
@@ -188,11 +189,15 @@ span.psw {
 }
 
 /* */
-#loginForm{
+#loginFormContainer{
   width: 60%;
-  background-color: rgba(52, 235, 88,0.2);
+  background-color: rgba(11, 20, 13, 0.7);
   margin-top: 30px;
-  border: solid gray 0.5px;
+  border: solid black 0.5px;
   border-radius: 10px;
   padding: 30px;
+}
+
+label{
+color: white;
 }
