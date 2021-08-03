@@ -1,5 +1,9 @@
 const form  = document.getElementById('loginForm');
 
+document.querySelector("button#modalOpenBtn").click();
+document.querySelector("div#mBod.modal-body").innerHTML = "Meeparooo";
+
+
 form.addEventListener('submit', (event) => {
     //let iname = form.elements['applicantName'].value ; 
     //let isurname = form.elements['applicantSurname'].value ;
@@ -38,12 +42,23 @@ form.addEventListener('submit', (event) => {
       sessionStorage.setItem('mediumScore', 0);
       sessionStorage.setItem('hardScore', 0);
       sessionStorage.setItem('dsScore', 0);
+      sessionStorage.setItem('currentLevel', 1);
+
+      /**
+       * 1 : Easy
+       * 2 : Medium
+       * 3 : Hard
+       * 4 : Dark Souls  
+       */
 
       //get starting time
       const start = Date.now();
       sessionStorage.setItem('startTime', start);
 
-      //redirect to easy
-      //window.location = "easy.html";
 
 });
+
+
+function setLevel(lvl){
+  sessionStorage.setItem('currentLevel', lvl);
+};
