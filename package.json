@@ -1,0 +1,22 @@
+{
+  "name": "bbd-vac-week2-splat",
+  "version": "1.0.0",
+  "description": "- We need a bursary program applicant test.\r - Must be fair to all levels of students applying for a bursary.\r - Grading should be automatic.\r - The test should test logical thought processes and attention to detail.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarmenJvR/BBD-VAC-Week2-Splat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarmenJvR/BBD-VAC-Week2-Splat/issues"
+  },
+  "homepage": "https://github.com/CarmenJvR/BBD-VAC-Week2-Splat#readme",
+  "dependencies": {
+    "firebase": "^8.8.1"
+  }
+}

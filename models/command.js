@@ -11,8 +11,8 @@ export class Command {
         this.params3 = params3;
     }
 
-    static walk = 0;
-    static turn = 1;
+    static walk = 0;//walk
+    static turn = 1;//direction
     static if_do_else = 2;
     static repeat_until = 3;
     static not = 4;
