@@ -1,4 +1,4 @@
-# BBD Vac Week 2021 - Team 4
+# BBD Vac Week 2 2021 - Team A
 
 ## The problem
 - We need a bursary program applicant test.
