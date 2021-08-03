@@ -336,9 +336,14 @@ Blockly.defineBlocksWithJsonArray([
 	"helpUrl": ""
   },
   {
-	"type" : "function_def_1",
-	"message0" : "Function 1 %1",
+	"type" : "function_def",
+	"message0" : "Function %1 %2",
 	"args0": [
+		{
+			"type": "field_input",
+			"name": "func_def_number",
+			"text": ""
+		},
 		{
 			"type": "input_statement",
 			"name": "function_code"
@@ -350,8 +355,15 @@ Blockly.defineBlocksWithJsonArray([
 	"helpUrl": ""
   },
   {
-	"type": "function_caller_1",
-	"message0": "Call function 1",
+	"type": "function_caller",
+	"message0": "Call function %1",
+	"args0": [
+		{
+			"type": "field_input",
+			"name": "func_call_number",
+			"text": ""
+		}
+	],
 	"previousStatement": null,
 	"nextStatement": null,
 	"colour": 15,
@@ -367,12 +379,6 @@ Blockly.defineBlocksWithJsonArray([
 // return code;
 // }
 
-Blockly.JavaScript['function_caller_1'] = function(block) {
-	// return `new Command(Command.function_caller_1), `;
-	return `function_caller_1,`;
-return code;
-}
-  
 Blockly.JavaScript["start"] = function(block) {
 
 	let code = Blockly.JavaScript.statementToCode(block, "code", Blockly.JavaScript.ORDER_NONE);
@@ -382,11 +388,20 @@ Blockly.JavaScript["start"] = function(block) {
 	return output;
 }
 
-Blockly.JavaScript["function_def_1"] = function(block) {
+Blockly.JavaScript['function_caller'] = function(block) {
+	// return `new Command(Command.function_caller_1), `;
+	let value = block.getFieldValue("func_call_number");
+	return `function_caller_${value},`;
+	// return `function_caller_,`;
+return code;
+}
+
+Blockly.JavaScript["function_def"] = function(block) {
 
 	let function_code = Blockly.JavaScript.statementToCode(block, "function_code", Blockly.JavaScript.ORDER_NONE);
-	// return `new Command(Command.function_def_1, [${function_code}]) `;
-	return `fxS[${function_code}]fxE`;
+	// return `fxS[${function_code}]fxE`;
+	let value = block.getFieldValue("func_def_number");
+	return `fS${value}[${function_code}]fE${value}`;
 }
 
 Blockly.JavaScript["walk"] = function(block) {
