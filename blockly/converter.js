@@ -9,7 +9,7 @@ export class Converter {
 
         let commands = null;
 
-        alert(code);
+        // alert(code);
         let indexSS = code.search("sxS");
         let indexSE = code.search("sxE");
         let slen = indexSE - indexSS;
@@ -21,22 +21,27 @@ export class Converter {
         var count = 1;
         
         let executeCode = startCode;
+        // alert("executeCode: " + executeCode);
         let funcCode = "";
 
         // alert("preWhile");
-        while (code.search("fS"+count) != -1) {
+        // alert(code);
+        while (code.search("f"+count+"S") != -1) {
             // alert("count: " + count);
-            let fex = "fE"+count;
-            let fsx = "fS"+count;
+            let fex = "f"+count+"E";
+            let fsx = "f"+count+"S";
             let indexfE = code.search(fex);
             let indexfS = code.search(fsx);
             let flen = indexfE - indexfS;
             funcCode = code.substr(indexfS+fsx.length+1, flen-fex.length-2);
+            // alert(funcCode);
 
-            while (executeCode.search("function_caller_"+count) != -1) {
+            while (executeCode.search("function_caller_"+count+"_") != -1) {
                 // alert("executeCode: " + executeCode);
-                executeCode = executeCode.replace("function_caller_"+count+",", funcCode);
+                executeCode = executeCode.replace("function_caller_"+count+"_,", funcCode);
             }
+
+            // alert("executeCode: " + executeCode);
 
             count = count + 1;
         }
@@ -51,12 +56,12 @@ export class Converter {
         // let indexFuncCall1 = startCode.search("function_caller_1");
         // alert("FuncCall1 at index " + indexFuncCall1);
 
-        // count = 1;
-        // // alert("replace while count: ");
+        count = 1;
+        // alert("replace while count: ");
 
         // while (executeCode.search("function_caller_"+count) != -1) {
         //     while (executeCode.search("function_caller_"+count) != -1) {
-        //         // alert("executeCode: " + executeCode);
+        //         alert("executeCode: " + executeCode);
         //         executeCode = executeCode.replace("function_caller_"+count+",", funcCode);
         //     }
         //     count = count + 1;

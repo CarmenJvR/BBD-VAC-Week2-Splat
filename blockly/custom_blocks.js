@@ -391,7 +391,7 @@ Blockly.JavaScript["start"] = function(block) {
 Blockly.JavaScript['function_caller'] = function(block) {
 	// return `new Command(Command.function_caller_1), `;
 	let value = block.getFieldValue("func_call_number");
-	return `function_caller_${value},`;
+	return `function_caller_${value}_,`;
 	// return `function_caller_,`;
 return code;
 }
@@ -401,7 +401,7 @@ Blockly.JavaScript["function_def"] = function(block) {
 	let function_code = Blockly.JavaScript.statementToCode(block, "function_code", Blockly.JavaScript.ORDER_NONE);
 	// return `fxS[${function_code}]fxE`;
 	let value = block.getFieldValue("func_def_number");
-	return `fS${value}[${function_code}]fE${value}`;
+	return `f${value}S[${function_code}]f${value}E`;
 }
 
 Blockly.JavaScript["walk"] = function(block) {
