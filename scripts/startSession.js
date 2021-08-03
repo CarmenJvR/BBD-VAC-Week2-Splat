@@ -1,15 +1,15 @@
 const form  = document.getElementById('loginForm');
 
 form.addEventListener('submit', (event) => {
-    let iname = form.elements['applicantName'].value ; 
-    let isurname = form.elements['applicantSurname'].value ;
+    //let iname = form.elements['applicantName'].value ; 
+    //let isurname = form.elements['applicantSurname'].value ;
     let iemail = form.elements['applicantEmail'].value ;
-    let iproficiency = form.elements['applicantProficiency'].value ;
-    let iinstitute = form.elements['applicantInstitute'].value ;
-    let idegree = form.elements['applicantDegree'].value ;
+    //let iproficiency = form.elements['applicantProficiency'].value ;
+    //let iinstitute = form.elements['applicantInstitute'].value ;
+    //let idegree = form.elements['applicantDegree'].value ;
 
-    sessionStorage.setItem('Name', iname);
-    const d = new Date();
+    
+  /**  const d = new Date();
 
     const applicant = {
         Name: iname,
@@ -27,6 +27,23 @@ form.addEventListener('submit', (event) => {
 
       var json = JSON.stringify(applicant);
       console.log(json);
-      alert(json);
+      alert(json); */
+
+      //Remove existing session storage items
+      sessionStorage.removeItem('email');
+
+      //Initialize session storage
+      sessionStorage.setItem('email', iemail);
+      sessionStorage.setItem('easyScore', 0);
+      sessionStorage.setItem('mediumScore', 0);
+      sessionStorage.setItem('hardScore', 0);
+      sessionStorage.setItem('dsScore', 0);
+
+      //get starting time
+      const start = Date.now();
+      sessionStorage.setItem('startTime', start);
+
+      //redirect to easy
+      //window.location = "easy.html";
 
 });

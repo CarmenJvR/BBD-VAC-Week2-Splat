@@ -9,74 +9,44 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"> 
         <link rel="stylesheet" href="styles/map_styles.css"></style>
         <link rel="stylesheet" href="styles/main.css"></style>
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-   
     <body>
 
-        <div class="nav">
-           
-            <a class="active" href="index.html">Easy Level</a>
-            <a href="medium.html">Medium Level</a>
-            <a  href="hard.html">Hard Level</a>
-            <a  href="dark.html">Dark Souls Level</a>
-          
+        <div class="container" id="loginFormContainer">
+                <form id="loginForm" action="easy.html">
+                    <div class="form-group" >
+                        <label for="applicantName">Applicant Name</label>
+                        <input type="text" color="dark" class="form-control" id="applicantName" placeholder="John" >
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantSurname">Applicant Surname</label>
+                        <input type="text" class="form-control" id="applicantSurname" placeholder="Doe" >
+                    </div>
+                    <div class="form-group">
+                    <label for="applicantEmail">Email</label>
+                    <input type="email" class="form-control" id="applicantEmail" placeholder="mail@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicantProficiency">Current Grade/Year of Studies</label>
+                        <input type="text" class="form-control" id="applicantProficiency" placeholder="Gr12 / Year 4" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicantInstitute">Institute</label>
+                        <input type="text" class="form-control" id="applicantInstitute" placeholder="Unversity of Pretoria" >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicantDegree">Degree For Application</label>
+                        <input type="text" class="form-control" id="applicantDegree" placeholder="Bsc Computer Science" >
+                    </div>
+
+                    <button type="submit"  class="btn btn-primary">Start Session</button>
+                </form>
         </div>
 
-    <table style="width:100%">
-
-        <tr>
-            <td>
-        <div class="row">
-
-            <div class="column">
-                <div id="blocklyDiv"></div>
-            </div>
-
-            <div class="column">
-                <div id="map" class="map"></div>
-            </div>
-
-        </div>
-
-        <div class="action-buttons">
-            <button id="start" class = "button1">Start</button>
-            <button id="reset" class = "button1">Stop</button>
-            <button id="preview" class = "button1">Preview</button>
-        </div>
-        
-    </td>
-
-    <br>
-    <br>
-        <!-- BLOCKLY TOOLBOX -->
-        <xml id="toolbox" style="display: none">
-            <block type="start"></block>
-            <block type="walk"></block>
-            <block type="turn"></block>
-            <block type="deposit"></block>
-            <block type="repeat_until"></block>
-            <block type="if_do_else"></block>
-            <block type="not"></block>
-            <block type="and"></block>
-            <block type="or"></block>
-            <block type="reached_end"></block>
-            <block type="is_color"></block>
-            <block type="is_tile_ahead"></block>
-            <block type="is_tile_current"></block>
-            
-        </xml>
-
-       
-
-    </tr>
-        </table>
-    </table>
-
-        <script src="https://unpkg.com/blockly"></script>
-        <script src="blockly/custom_blocks.js"></script> 
-        <script src="blockly/injector.js"></script>
-        <script type="module" src="./scripts/easy.js"></script>
-        
+        <script src="scripts/startSession.js"></script>
     </body>
 </html>
