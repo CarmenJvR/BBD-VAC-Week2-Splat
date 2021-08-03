@@ -31,21 +31,6 @@ export const LEVEL_5 = {
 
 solution : [
 
-  /*  new Command(Command.repeat_until, new Command(Command.reached_end), [
-
-        new Command(Command.if_do_else, new Command(Command.and, new Command(Command.is_color, Color.blue), [new Command(Command.is_tile_ahead, "Splat")]), [
-            new Command(Command.walk),
-            new Command(Command.turn, Turn.back)
-
-        ]),
-
-        new Command(Command.if_do_else, new Command(Command.and, new Command(Command.is_color, Color.red), [new Command(Command.is_tile_current, "Mixer")]), [
-            new Command(Command.turn, Turn.back)
-        ]),
-
-        new Command(Command.walk)
-    ]) */
-
     new Command(Command.repeat_until, new Command(Command.is_tile_ahead,"Wall"), [
         new Command(Command.walk)
     ]), 
