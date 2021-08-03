@@ -6,7 +6,10 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-image: url("../assets/backgound1.jpg");
+    background-image: url("../assets/backgound1.jpg") ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Create 2 equal colums */
@@ -37,10 +40,8 @@ body {
 }
 /* 
 layout */ */
-.nav {
+div.nav{
   overflow: hidden;
-  width:100% !important ;
-  margin: auto;
 }
 
 .nav a {
@@ -107,7 +108,7 @@ layout */ */
 
 .button1 {
   border: none;
-  color: yellow;
+  color: white;
   padding: 15px 56px;
   text-align: center;
   text-decoration: none;
@@ -116,10 +117,21 @@ layout */ */
   margin: 4px 2px;
   cursor: pointer;
   background-color: #333;
-  border-radius: 20%;
+  border-radius: 5%;
   position: relative; left: 100px; bottom: 100px;
-  /* outline-color:red;
-  outline-style: dashed; */
+}
+
+div.action-buttons{
+  background-color: rgba(0,0,0,0.4) !important;
+  padding: 10px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+
+
+.action-buttons button{
+  position: static;
 }
 
 .button {
@@ -195,12 +207,12 @@ span.psw {
 
 /* */
 #loginFormContainer{
-  width: 60%;
+  width: 60% !important;
   background-color: rgba(11, 20, 13, 0.7);
-  margin-top: 30px;
+  margin-top: 30px !important;
   border: solid black 0.5px;
   border-radius: 10px;
-  padding: 30px;
+  padding: 30px !important;
 }
 
 label{
@@ -208,7 +220,7 @@ color: white;
 }
 
 #scoreTable{
-  width: 90%;
+  width: 70%;
   margin: auto;
   margin-top: 30px;
 }
@@ -221,9 +233,24 @@ div.blocklyToolboxDiv.blocklyNonSelectable{
   border: solid black 1px;
 }
 
+.blocklyFlyoutBackground{
+  fill: rgb(0, 16, 43) !important;
+  opacity: 0.2 !important;
+}
+
 .container{
   width: 95% !important;
   margin: auto !important;
   padding: 0px !important;
 }
 
+
+#scoreHead{
+  background-color: rgba(0,0,0,0.4) !important;
+  color: white;
+  text-align: center;
+}
+
+#timeElapsedLabel{
+  text-align: center;
+}
