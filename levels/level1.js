@@ -55,9 +55,13 @@ solution : [
     new Command(Command.repeat_until , new Command (Command.is_tile_ahead ,"wall"),[
         new Command(Command.walk),
         
+    new Command(Command.turn,Turn.right),
+    new Command(Command.repeat_until , new Command (Command.is_tile_ahead ,"wall"),[
+            new Command(Command.walk),
     ]),
-    new Command(Command.turn,Turn.right)
     
+        
+    ]),
 ]
 
 };
