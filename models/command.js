@@ -23,4 +23,6 @@ export class Command {
     static is_tile_current = 9;
     static deposit = 10;
     static reached_end = 11;
+    static function_call = 12;
+        
 }

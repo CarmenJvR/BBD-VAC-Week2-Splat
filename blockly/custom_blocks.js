@@ -334,9 +334,32 @@ Blockly.defineBlocksWithJsonArray([
 	"colour": 315,
 	"tooltip": "",
 	"helpUrl": ""
+  },
+  {
+	"type" : "function_start",
+	"message0" : "Function %1",
+	"args0": [
+		{
+			"type": "input_statement",
+			"name": "code",
+			"align": "CENTRE"
+		}
+	],
+	"inputsInline": false,
+	"colour": 270,
+	"tooltip": "Start function",
+	"helpUrl": ""
   }]);
   
 Blockly.JavaScript["start"] = function(block) {
+
+	let code = Blockly.JavaScript.statementToCode(block, "code", Blockly.JavaScript.ORDER_NONE);
+	let output = `[${code}]`;
+	
+	return output;
+}
+
+Blockly.JavaScript["function_start"] = function(block) {
 
 	let code = Blockly.JavaScript.statementToCode(block, "code", Blockly.JavaScript.ORDER_NONE);
 	let output = `[${code}]`;
