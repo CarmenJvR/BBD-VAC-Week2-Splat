@@ -168,8 +168,6 @@ export class Render {
             Medium < 29900 ms
             Hard < 55200
             DarkSouls < 99200
-
-            Formula: [ 1 - (TimeTaken - PerfectTime)/perfectTime/2 ] * 100 
         */
 
 
@@ -204,11 +202,9 @@ export class Render {
             default :  break;          
         }
 
-        document.querySelector("div#mBod.modal-body").innerHTML = "Memo Sulotion Time: "+ solutionTime.toString() + " ms<br>Provided Solution Time: " + timeElapsed.toString() + " ms<br>" + "Percentage Scored: " + efficiencyScore.toString() + "%<br>Score: " + scoreReceived.toString() + "\\" + maxMark.toString() ;
+        document.querySelector("div#mBod.modal-body").innerHTML = "Memo Sulotion Time: < "+ solutionTime.toString() + " ms<br>Provided Solution Time: " + timeElapsed.toString() + " ms<br>" + "Percentage Scored: " + efficiencyScore.toString() + "%<br>Score: " + scoreReceived.toString() + "\\" + maxMark.toString() ;
         document.querySelector("button#modalOpenBtn").click();
 
-        //alert("Time Elapsed: " + timeElapsed.toString() + " ms\n" + "Percentage Scored: " + efficiencyScore.toString() + " %\n Score: " + scoreReceived.toString() + "\\" + maxMark.toString() );
-        
     }
 
 

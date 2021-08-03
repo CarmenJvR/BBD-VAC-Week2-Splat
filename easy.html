@@ -19,7 +19,7 @@
 
         <div class="container">
             
-        <div class="nav">
+        <div class="nav" >
            
             <a class="active" href="easy.html" onclick="setLevel(1)">Easy Level</a>
             <a href="medium.html" onclick="setLevel(2)">Medium Level</a>
@@ -56,7 +56,13 @@
         <div class="row">
 
             <div class="column">
+                <div class="action-buttons">
+                    <button id="start" class="button1"><i class="fa fa-play" aria-hidden="true"></i> Run</button>
+                    <button id="reset" class="button1"><i class="fa fa-stop" aria-hidden="true"></i> Stop</button>
+                    <button id="preview" class="button1"><i class="fa fa-eye" aria-hidden="true"></i> Preview</button>
+                </div>
                 <div id="blocklyDiv"></div>
+                
             </div>
 
             <div class="column">
@@ -65,11 +71,7 @@
 
         </div>
 
-        <div class="action-buttons">
-            <button id="start" class = "button1">Start</button>
-            <button id="reset" class = "button1">Stop</button>
-            <button id="preview" class = "button1">Preview</button>
-        </div>
+        
         
     </td>
 
@@ -77,20 +79,28 @@
     <br>
         <!-- BLOCKLY TOOLBOX -->
         <xml id="toolbox" style="display: none">
-            <block type="start"></block>
-            <block type="walk"></block>
-            <block type="turn"></block>
-            <block type="deposit"></block>
-            <block type="repeat_until"></block>
-            <block type="if_do_else"></block>
-            <block type="not"></block>
-            <block type="and"></block>
-            <block type="or"></block>
-            <block type="reached_end"></block>
-            <block type="is_color"></block>
-            <block type="is_tile_ahead"></block>
-            <block type="is_tile_current"></block>
-            
+            <category name="Control" colour="210">
+                <block type="start"></block>
+                <block type="walk"></block>
+                <block type="turn"></block>
+                <block type="deposit"></block>
+                <block type="reached_end"></block>
+                <block type="is_color"></block>
+                <block type="is_tile_ahead"></block>
+                <block type="is_tile_current"></block>
+            </category>
+            <category name="Logic" colour="20">
+                <block type="if_do_else"></block>
+                <block type="not"></block>
+                <block type="and"></block>
+                <block type="or"></block>
+            </category>
+            <category name="Loops" colour="120">
+                <block type="repeat_until"></block>
+            </category>
+            <category name="Functions" colour="290">
+
+            </category>
         </xml>
 
        

@@ -76,4 +76,21 @@ function setScoreTable(){
   document.querySelector("td#hardScoreTD").innerHTML = sessionStorage.getItem('hardScore').toString();
   document.querySelector("td#dsScoreTD").innerHTML = sessionStorage.getItem('dsScore').toString();
   document.querySelector("td#totalScoreTD").innerHTML = total.toString() ;
+
+  let timeElapsed = Date.now() -  sessionStorage.getItem('startTime');
+  timeElapsed = this.msToTime(timeElapsed);
+  document.querySelector("#timeElapsedLabel").innerHTML = "Time Elapsed: " + timeElapsed.toString() ;
+}
+
+function msToTime(duration) {
+  var milliseconds = parseInt((duration % 1000) / 100),
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+  hours = (hours < 10) ? "0" + hours : hours;
+  minutes = (minutes < 10) ? "0" + minutes : minutes;
+  //seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+  return hours + " h:" + minutes + "m";//+ ":" + seconds + "." + milliseconds;
 }
