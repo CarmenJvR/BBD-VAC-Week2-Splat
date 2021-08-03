@@ -1,7 +1,7 @@
 import { Converter } from "../blockly/converter.js";
 import { Engine } from "../engine/engine.js";
 import { Render } from "../engine/render.js";
-import {  LEVEL_1 } from "../levels/level1.js"
+import {  LEVEL_1 } from "../levels/level5.js"
 
 //Vars
 var render;
