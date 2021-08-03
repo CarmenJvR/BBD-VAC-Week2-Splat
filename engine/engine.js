@@ -82,6 +82,7 @@ export class Engine {
                 case Command.if_do_else: this.applyIfDoElse(command); break;
                 case Command.repeat_until: this.applyRepeatUntil(command); break;
                 case Command.deposit: this.applyDeposit(command); break;
+                case Command.function_caller: this.applyFunctionCall(command); break;
             }
         }
     }
@@ -299,6 +300,30 @@ export class Engine {
         this.map[pos.y][pos.x] = newTile;
         this.pushChanges();
         
+    }
+
+    applyFunctionCall(command) {
+        
+    }
+
+    applyFunctionExecute() {
+        this.changes.push(new Change(this.map, this.player));
+
+        this.applyCommandsToMap(this.commands);
+
+        if (this.emergencyStop) {
+            return 1;
+        }
+
+        if (this.indexOutOfBounds) {
+            return 3;
+        }
+
+        if (!this.reachedEnd) {
+            return 2;
+        }
+
+        return 0;
     }
 
     evaluateCondition(command) {
