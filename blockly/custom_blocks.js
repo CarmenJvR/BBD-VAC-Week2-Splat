@@ -336,14 +336,9 @@ Blockly.defineBlocksWithJsonArray([
 	"helpUrl": ""
   },
   {
-	"type" : "function_def",
-	"message0" : "Function %1 do %2",
+	"type" : "function_def_1",
+	"message0" : "Function 1 %1",
 	"args0": [
-		{
-			"type": "field_input",
-			"name": "function_name",
-			"text": ""
-		},
 		{
 			"type": "input_statement",
 			"name": "function_code"
@@ -355,40 +350,16 @@ Blockly.defineBlocksWithJsonArray([
 	"helpUrl": ""
   },
   {
-	"type": "function_caller",
-	"message0": "Call function %1",
-	"args0": [
-	  {
-		"type": "field_input",
-		"name": "function_called",
-		"text": ""
-	  }
-	],
+	"type": "function_caller_1",
+	"message0": "Call function 1",
 	"previousStatement": null,
 	"nextStatement": null,
 	"colour": 15,
 	"tooltip": "",
 	"helpUrl": ""
-  }]);
+  }
+]);
 
-Blockly.Blocks['insert_function'] = {
-	init: function() {
-	  this.appendDummyInput()
-		  .appendField("Define the Function:")
-		  .appendField(new Blockly.FieldVariable("element"), "pElement");
-	  this.appendStatementInput("INSERTED")
-		  .setCheck("Number");
-	  this.setColour(15);
-	  this.setTooltip('');
-	}
-};
-
-Blockly.JavaScript['insert_function'] = function(block) {
-	var pElement = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('pElement'), Blockly.Variables.NAME_TYPE);
-	var statements = Blockly.JavaScript.statementToCode(block, 'INSERTED');
-	var code =  'insert_function = function(pElement) {\n' + statements+';\n}';
-	return code;
-}
 
 // Blockly.JavaScript['function_caller'] = function(block) {
 // 	var input = Blockly.JavaScript.valueToCode(block, 'PARAM') || '0'; // Defaults to 0
@@ -396,24 +367,26 @@ Blockly.JavaScript['insert_function'] = function(block) {
 // return code;
 // }
 
-Blockly.JavaScript['function_caller'] = function(block) {
-	let calledFunc = block.getFieldValue("function_called");
-	return `new Command(Command.function_caller, ${calledFunc}), `;
+Blockly.JavaScript['function_caller_1'] = function(block) {
+	// return `new Command(Command.function_caller_1), `;
+	return `function_caller_1,`;
 return code;
 }
   
 Blockly.JavaScript["start"] = function(block) {
 
 	let code = Blockly.JavaScript.statementToCode(block, "code", Blockly.JavaScript.ORDER_NONE);
-	let output = `[${code}]`;
+	// let output = `[${code}]`;
+	let output = `sxS[${code}]sxE`;
 	
 	return output;
 }
 
-Blockly.JavaScript["function_def"] = function(block) {
+Blockly.JavaScript["function_def_1"] = function(block) {
 
 	let function_code = Blockly.JavaScript.statementToCode(block, "function_code", Blockly.JavaScript.ORDER_NONE);
-	return `new Command(Command.function_def, [${function_code}]), `;
+	// return `new Command(Command.function_def_1, [${function_code}]) `;
+	return `fxS[${function_code}]fxE`;
 }
 
 Blockly.JavaScript["walk"] = function(block) {

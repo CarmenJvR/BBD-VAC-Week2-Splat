@@ -82,7 +82,8 @@ export class Engine {
                 case Command.if_do_else: this.applyIfDoElse(command); break;
                 case Command.repeat_until: this.applyRepeatUntil(command); break;
                 case Command.deposit: this.applyDeposit(command); break;
-                case Command.function_caller: this.applyFunctionCall(command); break;
+                case Command.function_caller_1: this.applyFunctionCall1(command); break;
+                case Command.function_def_1: this.applyFunctionExecute1(command); break;
             }
         }
     }
@@ -302,14 +303,13 @@ export class Engine {
         
     }
 
-    applyFunctionCall(command) {
-        
+    applyFunctionCall1(command) {
+        this.applyFunctionExecute(command.params1)
     }
 
-    applyFunctionExecute() {
-        this.changes.push(new Change(this.map, this.player));
+    applyFunctionExecute1(command) {
 
-        this.applyCommandsToMap(this.commands);
+        this.applyCommandsToMap(command.params2);
 
         if (this.emergencyStop) {
             return 1;

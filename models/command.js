@@ -23,9 +23,7 @@ export class Command {
     static is_tile_current = 9;
     static deposit = 10;
     static reached_end = 11;
-    static function_def = 12;
-    static insert_function = 13
-    static function_caller = 14
-    static procedures_callnoreturn = 15
+    static function_def_1 = 12;
+    static function_caller_1 = 13;
         
 }
