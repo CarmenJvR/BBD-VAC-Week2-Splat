@@ -51,6 +51,7 @@ function initializeSession(){
         sessionStorage.setItem('mediumScore', 0);
         sessionStorage.setItem('hardScore', 0);
         sessionStorage.setItem('dsScore', 0);
+        sessionStorage.setItem('normalScore', 0);
         sessionStorage.setItem('currentLevel', 1);
   
         /**
@@ -70,11 +71,12 @@ function setLevel(lvl){
 };
 
 function setScoreTable(){
-  let total = Number(sessionStorage.getItem('easyScore'))+ Number(sessionStorage.getItem('mediumScore')) + Number(sessionStorage.getItem('hardScore')) + Number( sessionStorage.getItem('dsScore')); 
+  let total = Number(sessionStorage.getItem('easyScore'))+ Number(sessionStorage.getItem('normalScore'))+ Number(sessionStorage.getItem('mediumScore')) + Number(sessionStorage.getItem('hardScore')) + Number( sessionStorage.getItem('dsScore')); 
   document.querySelector("td#easyScoreTD").innerHTML = sessionStorage.getItem('easyScore').toString();
   document.querySelector("td#mediumScoreTD").innerHTML = sessionStorage.getItem('mediumScore').toString();
   document.querySelector("td#hardScoreTD").innerHTML = sessionStorage.getItem('hardScore').toString();
   document.querySelector("td#dsScoreTD").innerHTML = sessionStorage.getItem('dsScore').toString();
+  document.querySelector("td#normalScoreTD").innerHTML = sessionStorage.getItem('normalScore').toString();
   document.querySelector("td#totalScoreTD").innerHTML = total.toString() ;
 
   let timeElapsed = Date.now() -  sessionStorage.getItem('startTime');
