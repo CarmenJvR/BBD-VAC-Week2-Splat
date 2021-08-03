@@ -17,6 +17,8 @@ export class Render {
         this.messageState = messageState;
     }
 
+
+
     renderFirst() {
         this.stop = false;
         this.initMap(this.changes[0]);
@@ -33,6 +35,8 @@ export class Render {
     
     async startRender() {
         this.stop = false;
+
+        sessionStorage.setItem('startExec', Date.now());
 
         let currentChange = this.changes[0];
         this.renderMap(currentChange);
@@ -53,13 +57,18 @@ export class Render {
             await Render.sleep(200);
         }
 
+       sessionStorage.setItem('endExec', Date.now());
+
         switch (this.messageState) {
-            case 0: alert("Reached goal!"); break;
-            case 1: alert("Stuck in infinite loop"); break;
+            case 0: alert("Reached goal!"); this.GiveScore(); break;
+            case 1: alert("Stuck in infinite loop");  break;
             case 2: alert("Did not reach the end"); break;
             case 3: alert("Invalid bank deposit"); break;
             default : alert("Invalid solution"); break;
         }
+
+        
+        
     }
 
     stopRender() {
@@ -145,4 +154,62 @@ export class Render {
             this.currentRender.push(row);
         }
     }
+
+    GiveScore(){
+       // alert("meep");
+        let startExecution = sessionStorage.getItem('startExec');
+        let endExecution = sessionStorage.getItem('endExec');
+
+        let timeElapsed = endExecution - startExecution ;  
+
+        /*  Time of Solution Execution
+
+            Easy < 3700 ms
+            Medium < 29900 ms
+            Hard < 55200
+            DarkSouls < 99200
+
+            Formula: [ 1 - (TimeTaken - PerfectTime)/perfectTime/2 ] * 100 
+        */
+
+
+        let currentLevel =  Number(sessionStorage.getItem('currentLevel')) ;
+        let solutionTime = 0 ;
+        let maxMark = 0 ;
+
+        switch ( currentLevel ) {
+            case 1: solutionTime = 3700; maxMark = 5; break;           
+            case 2: solutionTime = 29900; maxMark = 20;  break;          
+            case 3: solutionTime = 55200; maxMark = 25; break;           
+            case 4: solutionTime = 99200; maxMark = 40; break;          
+            default :  break;          
+        }
+        
+        let efficiencyScore = ( 1-((timeElapsed - solutionTime)/solutionTime/2) )*100 ;
+
+        if(efficiencyScore > 100){
+            efficiencyScore = 100;
+        }else if(efficiencyScore < 20){
+            efficiencyScore = 20;
+        }
+
+        efficiencyScore.toFixed(2);
+        let scoreReceived = ( (efficiencyScore/100)*maxMark ).toFixed(2) ; 
+
+        switch ( currentLevel ) {
+            case 1: sessionStorage.setItem('easyScore', scoreReceived ) ; break;           
+            case 2: sessionStorage.setItem('mediumScore', scoreReceived );  break;          
+            case 3: sessionStorage.setItem('hardScore', scoreReceived ); break;           
+            case 4: sessionStorage.setItem('dsScore', scoreReceived );           
+            default :  break;          
+        }
+
+        document.querySelector("div#mBod.modal-body").innerHTML = "Memo Sulotion Time: "+ solutionTime.toString() + " ms<br>Provided Solution Time: " + timeElapsed.toString() + " ms<br>" + "Percentage Scored: " + efficiencyScore.toString() + "%<br>Score: " + scoreReceived.toString() + "\\" + maxMark.toString() ;
+        document.querySelector("button#modalOpenBtn").click();
+
+        //alert("Time Elapsed: " + timeElapsed.toString() + " ms\n" + "Percentage Scored: " + efficiencyScore.toString() + " %\n Score: " + scoreReceived.toString() + "\\" + maxMark.toString() );
+        
+    }
+
+
 }

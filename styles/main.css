@@ -201,3 +201,9 @@ span.psw {
 label{
 color: white;
 }
+
+#scoreTable{
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
+}
