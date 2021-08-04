@@ -32,7 +32,7 @@ export class Engine {
     }
 
     //Start the map change calculation
-    start() {
+    start(input) {
         this.changes.push(new Change(this.map, this.player));
 
         this.applyCommandsToMap(this.commands);
@@ -50,6 +50,7 @@ export class Engine {
         }
 
         if (!this.reachedEnd) {
+            if (input === 1) return 5;
             return 2;
         }
 

@@ -57,13 +57,14 @@ export class Render {
         }
 
         sessionStorage.setItem('endExec', Date.now());
-
+        
         switch (this.messageState) {
             case 0: this.GiveScore(); break;
             case 1: Render.modalAlert("Stuck in infinite loop");  break;
             case 2: Render.modalAlert("Did not reach the end"); break;
             case 3: Render.modalAlert("Invalid bank deposit"); break;
             case 4: Render.modalAlert("Cannot deposit acid"); break;
+            case 5: break; //for use of free play buttons
             default : Render.modalAlert("Invalid solution"); break;
         }
         

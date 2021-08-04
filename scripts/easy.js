@@ -4,7 +4,9 @@ import { Render } from "../engine/render.js";
 import {  LEVEL_1 } from "../levels/level1.js"
 
 //Vars
+var engine;
 var render;
+var firstTimeExec = true;
 
 //Reset
 reset();
@@ -15,11 +17,18 @@ document.getElementById("start").onclick = function() {
 };
 
 document.getElementById("reset").onclick = function() {  
+    firstTimeExec = true;
     reset();
 };
 
 document.getElementById("preview").onclick = function() {  
     showSolution();
+};
+
+//Sandbox play buttons
+document.getElementById("walk").onclick = function() {  
+    walk();
+    firstTimeExec = false;
 };
 
 async function reset() {
@@ -51,7 +60,6 @@ async function showSolution() {
 async function start() {
 
     let code = Blockly.JavaScript.workspaceToCode(Blockly.getMainWorkspace());
-    // alert(code);
     let commands = Converter.convert(code);
     // alert(commands);
 
@@ -62,7 +70,27 @@ async function start() {
     
     render.stopRender();
     let engine = new Engine( LEVEL_1.map, LEVEL_1.player, commands);
-    let res = engine.start();
+    let res = engine.start(0);
+    let changes = engine.changes;
+
+    render.changes = changes;
+    render.messageState = res;
+    await render.startRender();
+}
+
+async function walk() {
+
+    let code = "sxS[  new Command(Command.walk),]sxE";
+    let commands = Converter.convert(code);
+    // alert(commands);
+    
+    render.stopRender();
+    if(firstTimeExec){
+        engine = new Engine( LEVEL_1.map, LEVEL_1.player, commands);
+    }else {
+        engine = new Engine( engine.map, engine.player, commands);
+    }
+    let res = engine.start(1);
     let changes = engine.changes;
 
     render.changes = changes;
