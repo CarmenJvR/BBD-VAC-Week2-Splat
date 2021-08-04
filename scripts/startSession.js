@@ -5,33 +5,8 @@ document.querySelector("div#mBod.modal-body").innerHTML = "Meeparooo";
 
 
 form.addEventListener('submit', (event) => {
-    //let iname = form.elements['applicantName'].value ; 
-    //let isurname = form.elements['applicantSurname'].value ;
     let iemail = form.elements['applicantEmail'].value ;
-    //let iproficiency = form.elements['applicantProficiency'].value ;
-    //let iinstitute = form.elements['applicantInstitute'].value ;
-    //let idegree = form.elements['applicantDegree'].value ;
 
-    
-  /**  const d = new Date();
-
-    const applicant = {
-        Name: iname,
-        Surname : isurname ,
-        CurrentProficiency: iemail,
-        DegreeForApplication: idegree,
-        InstituteOfStudy: iinstitute,
-        Email: iemail,
-        SubmissionDate: d.getFullYear(),
-        EasyScore: 0 ,
-        MediumScore: 0,
-        HardScore: 0 ,
-        DarkScore: 0 
-      };
-
-      var json = JSON.stringify(applicant);
-      console.log(json);
-      alert(json); */
 
         //Remove existing session storage items
         sessionStorage.removeItem('email');
@@ -52,6 +27,7 @@ function initializeSession(){
         sessionStorage.setItem('hardScore', 0);
         sessionStorage.setItem('dsScore', 0);
         sessionStorage.setItem('normalScore', 0);
+        sessionStorage.setItem('rookieScore', 0);
         sessionStorage.setItem('currentLevel', 1);
   
         /**

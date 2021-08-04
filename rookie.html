@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Splat</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"> 
+        <link rel="stylesheet" href="styles/map_styles.css"></style>
+        <link rel="stylesheet" href="styles/main.css"></style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="scripts/startSession.js"></script>
+    </head>
+   
+    <body>
+
+        <div class="container">
+            
+        <div class="nav" >
+            <a class="active" href="easy.html" onclick="setLevel(1)">Easy Level</a>
+            <a href="normal.html" onclick="setLevel(5)">Normal Level</a>
+            <a href="rookie.html" onclick="setLevel(7)">Rookie-Medium Level</a>
+            <a href="medium.html" onclick="setLevel(2)">Medium Level</a>
+            <a  href="hard.html" onclick="setLevel(3)">Hard Level</a>
+            <a  href="dark.html" onclick="setLevel(4)">Dark Souls Level</a>
+            <a  href="score-sheet.html"  >View Your Scores</a>
+        </div>
+
+
+        <!-- Modal -->
+        <button id="modalOpenBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#infoModal" style="visibility: hidden;" ></button>
+        <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Score Summary</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="mBod"> </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Proceed</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    <table style="width:100%">
+
+        <tr>
+            <td>
+        <div class="row">
+
+            <div class="column">
+                <div class="action-buttons">
+                    <button id="start" class="button1"><i class="fa fa-play" aria-hidden="true"></i> Run</button>
+                    <button id="reset" class="button1"><i class="fa fa-stop" aria-hidden="true"></i> Stop</button>
+                    <button id="preview" class="button1"><i class="fa fa-eye" aria-hidden="true"></i> Preview</button>
+                </div>
+                <div id="blocklyDiv"></div>
+                
+            </div>
+
+            <div class="column">
+                <div id="map" class="map"></div>
+            </div>
+
+        </div>
+
+        
+        
+    </td>
+
+    <br>
+    <br>
+        <!-- BLOCKLY TOOLBOX -->
+        <xml id="toolbox" style="display: none">
+            <category name="Control" colour="210">
+                <block type="start"></block>
+                <block type="walk"></block>
+                <block type="turn"></block>
+                <block type="deposit"></block>
+                <block type="reached_end"></block>
+                <block type="is_color"></block>
+                <block type="is_tile_ahead"></block>
+                <block type="is_tile_current"></block>
+            </category>
+            <category name="Logic" colour="20">
+                <block type="if_do_else"></block>
+                <block type="not"></block>
+                <block type="and"></block>
+                <block type="or"></block>
+            </category>
+            <category name="Loops" colour="120">
+                <block type="repeat_until"></block>
+            </category>
+            <category name="Functions" colour="290">
+                <block type="function_def"></block>
+                 <block type="function_caller"></block>
+            </category>
+        </xml>
+
+       
+
+    </tr>
+        </table>
+    </table>
+</div>
+        <script src="https://unpkg.com/blockly"></script>
+        <script src="blockly/custom_blocks.js"></script> 
+        <script src="blockly/injector.js"></script>
+        <script type="module" src="./scripts/rookie.js"></script>
+        
+    </body>
+</html>
