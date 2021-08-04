@@ -56,7 +56,7 @@ async function start() {
     // alert(commands);
 
     if (commands === null || commands === undefined) {
-        alert("Cannot start an empty solution");
+        Render.modalAlert("Cannot start an empty solution");
         return;
     }
     

@@ -39,7 +39,7 @@ Blockly.defineBlocksWithJsonArray([
 	  }
 	],
 	"inputsInline": false,
-	"colour": 270,
+	"colour": 210,
 	"tooltip": "Begin",
 	"helpUrl": ""
   },
@@ -48,7 +48,7 @@ Blockly.defineBlocksWithJsonArray([
 	"message0": "walk",
 	"previousStatement": null,
 	"nextStatement": null,
-	"colour": 135,
+	"colour": 210,
 	"tooltip": "",
 	"helpUrl": ""
   },
@@ -77,7 +77,7 @@ Blockly.defineBlocksWithJsonArray([
 	],
 	"previousStatement": null,
 	"nextStatement": null,
-	"colour": 135,
+	"colour": 210,
 	"tooltip": "",
 	"helpUrl": ""
   },
@@ -99,7 +99,7 @@ Blockly.defineBlocksWithJsonArray([
   },
   {
 	"type": "if_do_else",
-	"message0": "If %1 then %2 else %3",
+	"message0": "If %1 do %2 else do %3",
 	"args0": [
 	  {
 		"type": "input_value",
@@ -116,7 +116,7 @@ Blockly.defineBlocksWithJsonArray([
 	],
 	"previousStatement": null,
 	"nextStatement": null,
-	"colour": 0,
+	"colour": 20,
 	"tooltip": "",
 	"helpUrl": ""
   },
@@ -135,7 +135,7 @@ Blockly.defineBlocksWithJsonArray([
 	],
 	"previousStatement": null,
 	"nextStatement": null,
-	"colour": 0,
+	"colour": 20,
 	"tooltip": "",
 	"helpUrl": ""
   },
@@ -149,7 +149,7 @@ Blockly.defineBlocksWithJsonArray([
 	  }
 	],
 	"output": null,
-	"colour": 230,
+	"colour": 20,
 	"tooltip": "",
 	"helpUrl": ""
   },
@@ -168,7 +168,7 @@ Blockly.defineBlocksWithJsonArray([
 	],
 	"inputsInline": true,
 	"output": null,
-	"colour": 230,
+	"colour": 20,
 	"tooltip": "",
 	"helpUrl": ""
   },
@@ -187,7 +187,7 @@ Blockly.defineBlocksWithJsonArray([
 	],
 	"inputsInline": true,
 	"output": null,
-	"colour": 230,
+	"colour": 20,
 	"tooltip": "",
 	"helpUrl": ""
   },
@@ -239,7 +239,7 @@ Blockly.defineBlocksWithJsonArray([
 	  }
 	],
 	"output": "CONDITION",
-	"colour": 315,
+	"colour": 20,
 	"tooltip": "",
 	"helpUrl": ""
   },
@@ -283,7 +283,7 @@ Blockly.defineBlocksWithJsonArray([
 	  }
 	],
 	"output": "CONDITION",
-	"colour": 315,
+	"colour": 20,
 	"tooltip": "",
 	"helpUrl": ""
   },
@@ -327,21 +327,21 @@ Blockly.defineBlocksWithJsonArray([
 	  }
 	],
 	"output": "CONDITION",
-	"colour": 315,
+	"colour": 20,
 	"tooltip": "",
 	"helpUrl": ""
   },
   {
 	"type": "reached_end",
-	"message0": "Reached End",
+	"message0": "Reached Flag",
 	"output": "CONDITION",
-	"colour": 315,
+	"colour": 20,
 	"tooltip": "",
 	"helpUrl": ""
   },
   {
 	"type" : "function_def",
-	"message0" : "Function %1 %2",
+	"message0" : "Reuseable Moves %1 %2",
 	"args0": [
 		{
 			"type": "field_input",
@@ -354,13 +354,13 @@ Blockly.defineBlocksWithJsonArray([
 		}
 	],
 	"inputsInline": false,
-	"colour": 15,
+	"colour": 290,
 	"tooltip": "Define function",
 	"helpUrl": ""
   },
   {
 	"type": "function_caller",
-	"message0": "Call function %1",
+	"message0": "Use %1",
 	"args0": [
 		{
 			"type": "field_input",
@@ -370,7 +370,7 @@ Blockly.defineBlocksWithJsonArray([
 	],
 	"previousStatement": null,
 	"nextStatement": null,
-	"colour": 15,
+	"colour": 290,
 	"tooltip": "",
 	"helpUrl": ""
   }

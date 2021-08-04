@@ -5,33 +5,8 @@ document.querySelector("div#mBod.modal-body").innerHTML = "Meeparooo";
 
 
 form.addEventListener('submit', (event) => {
-    //let iname = form.elements['applicantName'].value ; 
-    //let isurname = form.elements['applicantSurname'].value ;
     let iemail = form.elements['applicantEmail'].value ;
-    //let iproficiency = form.elements['applicantProficiency'].value ;
-    //let iinstitute = form.elements['applicantInstitute'].value ;
-    //let idegree = form.elements['applicantDegree'].value ;
 
-    
-  /**  const d = new Date();
-
-    const applicant = {
-        Name: iname,
-        Surname : isurname ,
-        CurrentProficiency: iemail,
-        DegreeForApplication: idegree,
-        InstituteOfStudy: iinstitute,
-        Email: iemail,
-        SubmissionDate: d.getFullYear(),
-        EasyScore: 0 ,
-        MediumScore: 0,
-        HardScore: 0 ,
-        DarkScore: 0 
-      };
-
-      var json = JSON.stringify(applicant);
-      console.log(json);
-      alert(json); */
 
         //Remove existing session storage items
         sessionStorage.removeItem('email');
@@ -52,6 +27,7 @@ function initializeSession(){
         sessionStorage.setItem('hardScore', 0);
         sessionStorage.setItem('dsScore', 0);
         sessionStorage.setItem('normalScore', 0);
+        sessionStorage.setItem('rookieScore', 0);
         sessionStorage.setItem('currentLevel', 1);
   
         /**
@@ -71,12 +47,13 @@ function setLevel(lvl){
 };
 
 function setScoreTable(){
-  let total = Number(sessionStorage.getItem('easyScore'))+ Number(sessionStorage.getItem('normalScore'))+ Number(sessionStorage.getItem('mediumScore')) + Number(sessionStorage.getItem('hardScore')) + Number( sessionStorage.getItem('dsScore')); 
+  let total = Number(sessionStorage.getItem('easyScore'))+ Number(sessionStorage.getItem('normalScore'))+ Number(sessionStorage.getItem('rookieScore')) + Number(sessionStorage.getItem('mediumScore')) + Number(sessionStorage.getItem('hardScore')) + Number( sessionStorage.getItem('dsScore')); 
   document.querySelector("td#easyScoreTD").innerHTML = sessionStorage.getItem('easyScore').toString();
   document.querySelector("td#mediumScoreTD").innerHTML = sessionStorage.getItem('mediumScore').toString();
   document.querySelector("td#hardScoreTD").innerHTML = sessionStorage.getItem('hardScore').toString();
   document.querySelector("td#dsScoreTD").innerHTML = sessionStorage.getItem('dsScore').toString();
   document.querySelector("td#normalScoreTD").innerHTML = sessionStorage.getItem('normalScore').toString();
+  document.querySelector("td#rookieScoreTD").innerHTML = sessionStorage.getItem('rookieScore').toString();
   document.querySelector("td#totalScoreTD").innerHTML = total.toString() ;
 
   let timeElapsed = Date.now() -  sessionStorage.getItem('startTime');
@@ -92,7 +69,7 @@ function msToTime(duration) {
 
   hours = (hours < 10) ? "0" + hours : hours;
   minutes = (minutes < 10) ? "0" + minutes : minutes;
-  //seconds = (seconds < 10) ? "0" + seconds : seconds;
+ // seconds = (seconds < 10) ? "0" + seconds : seconds;
 
-  return hours + " h:" + minutes + "m";//+ ":" + seconds + "." + milliseconds;
+  return hours + " h:" + minutes + "m" ;//+ ":" + seconds + "." + milliseconds;
 }

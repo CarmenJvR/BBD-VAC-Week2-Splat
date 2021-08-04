@@ -1,7 +1,7 @@
 import { Converter } from "../blockly/converter.js";
 import { Engine } from "../engine/engine.js";
 import { Render } from "../engine/render.js";
-import {  LEVEL_5 } from "../levels/level5.js"
+import {  LEVEL_7 } from "../levels/level7.js"
 
 //Vars
 var render;
@@ -27,10 +27,10 @@ async function reset() {
     if (!!render) {
         render.stopRender();
         await Render.sleep(300);
-        render.resetTo(LEVEL_5);
+        render.resetTo(LEVEL_7);
 
     } else {
-        render = new Render(document.getElementById("map"), [LEVEL_5]);
+        render = new Render(document.getElementById("map"), [LEVEL_7]);
         render.renderFirst();
     }
 }
@@ -38,7 +38,7 @@ async function reset() {
 async function showSolution() {
     
     render.stopRender();
-    let engine = new Engine( LEVEL_5.map, LEVEL_5.player, LEVEL_5.solution);
+    let engine = new Engine( LEVEL_7.map, LEVEL_7.player, LEVEL_7.solution);
     let res = engine.start();
     let changes = engine.changes;
 
@@ -51,15 +51,17 @@ async function showSolution() {
 async function start() {
 
     let code = Blockly.JavaScript.workspaceToCode(Blockly.getMainWorkspace());
+    // alert(code);
     let commands = Converter.convert(code);
+    // alert(commands);
 
     if (commands === null || commands === undefined) {
-        Render.modalAlert("Cannot start an empty solution");
+        alert("Cannot start an empty solution");
         return;
     }
     
     render.stopRender();
-    let engine = new Engine( LEVEL_5.map, LEVEL_5.player, commands);
+    let engine = new Engine( LEVEL_7.map, LEVEL_7.player, commands);
     let res = engine.start();
     let changes = engine.changes;
 
