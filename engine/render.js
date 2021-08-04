@@ -107,7 +107,7 @@ export class Render {
                 if (src !== this.currentRender[y][x]) {
                     this.currentRender[y][x] = src;
 
-                    document.getElementById(`${y}_${x}`).src = `/assets/${src}.png`;
+                    document.getElementById(`${y}_${x}`).src = `./assets/${src}.png`;
                 }
             }
         }

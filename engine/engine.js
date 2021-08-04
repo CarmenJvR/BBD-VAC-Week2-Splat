@@ -82,6 +82,8 @@ export class Engine {
                 case Command.if_do_else: this.applyIfDoElse(command); break;
                 case Command.repeat_until: this.applyRepeatUntil(command); break;
                 case Command.deposit: this.applyDeposit(command); break;
+                // case Command.function_caller_1: this.applyFunctionCall1(command); break;
+                // case Command.function_def_1: this.applyFunctionExecute1(command); break;
             }
         }
     }
@@ -300,6 +302,29 @@ export class Engine {
         this.pushChanges();
         
     }
+
+    // applyFunctionCall1(command) {
+    //     this.applyFunctionExecute(command.params1)
+    // }
+
+    // applyFunctionExecute1(command) {
+
+    //     this.applyCommandsToMap(command.params2);
+
+    //     if (this.emergencyStop) {
+    //         return 1;
+    //     }
+
+    //     if (this.indexOutOfBounds) {
+    //         return 3;
+    //     }
+
+    //     if (!this.reachedEnd) {
+    //         return 2;
+    //     }
+
+    //     return 0;
+    // }
 
     evaluateCondition(command) {
 

@@ -51,7 +51,9 @@ async function showSolution() {
 async function start() {
 
     let code = Blockly.JavaScript.workspaceToCode(Blockly.getMainWorkspace());
+    // alert(code);
     let commands = Converter.convert(code);
+    // alert(commands);
 
     if (commands === null || commands === undefined) {
         alert("Cannot start an empty solution");
