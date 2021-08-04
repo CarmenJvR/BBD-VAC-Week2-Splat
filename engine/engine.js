@@ -169,6 +169,10 @@ export class Engine {
                 return;
             }
 
+            if (color == 9) {
+                this.map[newPos.y][newPos.x] = "Gate 9 m";
+            }
+
             //Update player position
             this.player = new Player(newPos.x, newPos.y, this.player.dir, this.player.color);
             this.pushChanges();
