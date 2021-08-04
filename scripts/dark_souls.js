@@ -69,7 +69,7 @@ async function start() {
     let commands = Converter.convert(code);
 
     if (commands === null || commands === undefined) {
-        alert("Cannot start an empty solution");
+        Render.modalAlert("Cannot start an empty solution");
         return;
     }
     

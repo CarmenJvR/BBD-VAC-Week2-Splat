@@ -60,11 +60,11 @@ export class Render {
        sessionStorage.setItem('endExec', Date.now());
 
         switch (this.messageState) {
-            case 0: alert("Reached goal!"); this.GiveScore(); break;
-            case 1: alert("Stuck in infinite loop");  break;
-            case 2: alert("Did not reach the end"); break;
-            case 3: alert("Invalid bank deposit"); break;
-            default : alert("Invalid solution"); break;
+            case 0: this.GiveScore(); break;
+            case 1: Render.modalAlert("Stuck in infinite loop");  break;
+            case 2: Render.modalAlert("Did not reach the end"); break;
+            case 3: Render.modalAlert("Invalid bank deposit"); break;
+            default : Render.modalAlert("Invalid solution"); break;
         }
 
         
@@ -204,10 +204,16 @@ export class Render {
             case 5: sessionStorage.setItem('normalScore', scoreReceived ); break;         
             default :  break;          
         }
-
-        document.querySelector("div#mBod.modal-body").innerHTML = "Memo Sulotion Time: < "+ solutionTime.toString() + " ms<br>Provided Solution Time: " + timeElapsed.toString() + " ms<br>" + "Percentage Scored: " + efficiencyScore.toString() + "%<br>Score: " + scoreReceived.toString() + "\\" + maxMark.toString() ;
+        document.querySelector("div#mHead.modal-header").innerHTML = '<span style="color:green">Success!</span>';
+        document.querySelector("div#mBod.modal-body").innerHTML = "Score Summary<br><br>Memo Sulotion Time: < "+ solutionTime.toString() + " ms<br>Provided Solution Time: " + timeElapsed.toString() + " ms<br>" + "Percentage Scored: " + efficiencyScore.toString() + "%<br>Score: " + scoreReceived.toString() + "\\" + maxMark.toString() ;
         document.querySelector("button#modalOpenBtn").click();
 
+    }
+
+    static modalAlert(message) {
+        document.querySelector("div#mHead.modal-header").innerHTML = '<span style="color:red">Unsuccessful Attempt</span>';
+        document.querySelector("div#mBod.modal-body").innerHTML = message;
+        document.querySelector("button#modalOpenBtn").click();
     }
 
 
