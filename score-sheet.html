@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Splat</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"> 
+        <link rel="stylesheet" href="styles/map_styles.css"></style>
+        <link rel="stylesheet" href="styles/main.css"></style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        </head>
+    <body onload="setScoreTable()">
+
+        <div class="container">
+            <div class="nav">
+           
+                <a  href="easy.html" onclick="setLevel(1)">Easy Level</a>
+                <a href="medium.html" onclick="setLevel(2)">Medium Level</a>
+                <a  href="hard.html" onclick="setLevel(3)">Hard Level</a>
+                <a  href="dark.html" onclick="setLevel(4)">Dark Souls Level</a>
+                <a  href="score-sheet.html" class="active" >View Your Scores</a>
+              
+            </div>
+
+            <h1 id="timeElapsedLabel"></h1>
+            
+            <table class="table" id="scoreTable">
+                <thead>
+                  <tr id="scoreHead">
+                    <th>Level</th>
+                    <th>Max Score</th>
+                    <th>Received Score</th>
+                  </tr>
+                </thead>
+                <tbody>    
+                  <tr class="info">
+                    <td>Easy</td>
+                    <td>5</td>
+                    <td id="easyScoreTD"></td>
+                  </tr>
+                  <tr class="info">
+                    <td>Normal</td>
+                    <td>10</td>
+                    <td id="normalScoreTD"></td>
+                  </tr>
+                  <tr class="info">
+                    <td>Medium</td>
+                    <td>10</td>
+                    <td id="mediumScoreTD"></td>
+                  </tr>
+                  <tr class="info">
+                    <td>Hard</td>
+                    <td>25</td>
+                    <td id="hardScoreTD"></td>
+                  </tr>
+                  <tr class="info">
+                    <td>Dark Souls</td>
+                    <td>40</td>
+                    <td id="dsScoreTD"></td>
+                  </tr>
+                  <tr class="info">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="info">
+                    <td>Total Score</td>
+                    <td>100</td>
+                    <td id="totalScoreTD"></td>
+                  </tr>
+                </tbody>
+              </table>
+
+               
+        </div>
+
+        <script src="scripts/startSession.js"></script>
+    </body>
+</html>
