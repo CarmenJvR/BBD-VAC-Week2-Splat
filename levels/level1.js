@@ -27,7 +27,7 @@ map : [
     ["Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall"],
 ],
 
-player : new Player(2, 1, Direction.South, Color.orange),
+player : new Player(2, 1, Direction.South, Color.orange), 
 
 solution : [
 
