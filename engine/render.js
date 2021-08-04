@@ -161,14 +161,15 @@ export class Render {
         let endExecution = sessionStorage.getItem('endExec');
 
         let timeElapsed = endExecution - startExecution ;  
-
+        
         /*  Time of Solution Execution
 
-            Easy < 3700 ms
-            Medium < 29900 ms
-            Hard < 55200
-            DarkSouls < 99200
-            Normal < 37300 ms
+           1 Easy < 3700 ms
+           2 Medium < 29900 ms
+           3 Hard < 55200
+           4 DarkSouls < 99200
+           5 Normal < 37300 ms
+           6 Rookie Medium < 36100
         */
 
 
@@ -178,10 +179,11 @@ export class Render {
 
         switch ( currentLevel ) {
             case 1: solutionTime = 3700; maxMark = 5; break;           
-            case 2: solutionTime = 29900; maxMark = 20;  break;          
+            case 2: solutionTime = 29900; maxMark = 15;  break;          
             case 3: solutionTime = 55200; maxMark = 25; break;           
-            case 4: solutionTime = 99200; maxMark = 40; break;  
-            case 5: solutionTime = 37300; maxMark = 10; break;         
+            case 4: solutionTime = 99200; maxMark = 30; break;  
+            case 5: solutionTime = 37300; maxMark = 10; break;  
+            case 6: solutionTime = 36100; maxMark = 15; break;        
             default :  break;          
         }
         
@@ -201,7 +203,8 @@ export class Render {
             case 2: sessionStorage.setItem('mediumScore', scoreReceived );  break;          
             case 3: sessionStorage.setItem('hardScore', scoreReceived ); break;           
             case 4: sessionStorage.setItem('dsScore', scoreReceived ); break;
-            case 5: sessionStorage.setItem('normalScore', scoreReceived ); break;         
+            case 5: sessionStorage.setItem('normalScore', scoreReceived ); break;  
+            case 6: sessionStorage.setItem('rookieScore', scoreReceived ); break;          
             default :  break;          
         }
 
