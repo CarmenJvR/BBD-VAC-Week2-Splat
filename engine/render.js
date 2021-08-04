@@ -63,6 +63,7 @@ export class Render {
             case 1: Render.modalAlert("Stuck in infinite loop");  break;
             case 2: Render.modalAlert("Did not reach the end"); break;
             case 3: Render.modalAlert("Invalid bank deposit"); break;
+            case 4: Render.modalAlert("Cannot deposit acid"); break;
             default : Render.modalAlert("Invalid solution"); break;
         }
         
