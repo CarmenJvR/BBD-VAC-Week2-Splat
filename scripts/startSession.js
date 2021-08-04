@@ -81,13 +81,6 @@ function setScoreTable(){
 
   let timeElapsed = Date.now() -  sessionStorage.getItem('startTime');
   timeElapsed = this.msToTime(timeElapsed);
-
-  // var liveElapsedTime;
-  // var elapsedTimeString = "00:00";
-
-  // liveElapsedTime = setInterval(() => {elapsedTimeString = msToTime(timeElapsed)});
-
-
   document.querySelector("#timeElapsedLabel").innerHTML = "Time Elapsed: " + timeElapsed.toString() ;
 }
 
@@ -99,7 +92,7 @@ function msToTime(duration) {
 
   hours = (hours < 10) ? "0" + hours : hours;
   minutes = (minutes < 10) ? "0" + minutes : minutes;
-  //seconds = (seconds < 10) ? "0" + seconds : seconds;
+ // seconds = (seconds < 10) ? "0" + seconds : seconds;
 
-  return hours + " h:" + minutes + "m";//+ ":" + seconds + "." + milliseconds;
+  return hours + " h:" + minutes + "m" ;//+ ":" + seconds + "." + milliseconds;
 }
