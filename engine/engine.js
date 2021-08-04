@@ -12,6 +12,7 @@ export class Engine {
     emergencyStop = false;
     reachedEnd = false;
     indexOutOfBounds = false;
+    acidUsed = false;
 
     constructor(map, player, commands) {
 
@@ -44,6 +45,10 @@ export class Engine {
             return 3;
         }
 
+        if (this.acidUsed) {
+            return 4;
+        }
+
         if (!this.reachedEnd) {
             return 2;
         }
@@ -70,7 +75,7 @@ export class Engine {
 
         for (let i = 0; i < commands.length; i++) {
 
-            if (this.emergencyStop | this.indexOutOfBounds) {
+            if (this.emergencyStop | this.indexOutOfBounds | this.acidUsed) {
                 return;
             }
 
@@ -297,7 +302,7 @@ export class Engine {
         }
 
         if (this.player.color == 9) {
-            alert("Can't deposit acid!");
+            this.acidUsed = true;
             return;
         }
 

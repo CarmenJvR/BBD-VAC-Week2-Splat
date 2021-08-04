@@ -18,7 +18,6 @@ export class Render {
     }
 
 
-
     renderFirst() {
         this.stop = false;
         this.initMap(this.changes[0]);
@@ -57,17 +56,16 @@ export class Render {
             await Render.sleep(200);
         }
 
-       sessionStorage.setItem('endExec', Date.now());
+        sessionStorage.setItem('endExec', Date.now());
 
         switch (this.messageState) {
             case 0: alert("Reached goal!"); this.GiveScore(); break;
             case 1: alert("Stuck in infinite loop");  break;
             case 2: alert("Did not reach the end"); break;
             case 3: alert("Invalid bank deposit"); break;
+            case 4: alert("Cannot deposit acid"); break;
             default : alert("Invalid solution"); break;
         }
-
-        
         
     }
 
