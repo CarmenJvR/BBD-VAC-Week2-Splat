@@ -99,7 +99,7 @@ Blockly.defineBlocksWithJsonArray([
   },
   {
 	"type": "if_do_else",
-	"message0": "If %1 then %2 else %3",
+	"message0": "If %1 do %2 else do %3",
 	"args0": [
 	  {
 		"type": "input_value",
@@ -329,7 +329,7 @@ Blockly.defineBlocksWithJsonArray([
   },
   {
 	"type": "reached_end",
-	"message0": "Reached End",
+	"message0": "Reached Flag",
 	"output": "CONDITION",
 	"colour": 315,
 	"tooltip": "",
@@ -337,7 +337,7 @@ Blockly.defineBlocksWithJsonArray([
   },
   {
 	"type" : "function_def",
-	"message0" : "Function %1 %2",
+	"message0" : "Reuseable Moves %1 %2",
 	"args0": [
 		{
 			"type": "field_input",
@@ -356,7 +356,7 @@ Blockly.defineBlocksWithJsonArray([
   },
   {
 	"type": "function_caller",
-	"message0": "Call function %1",
+	"message0": "Use %1",
 	"args0": [
 		{
 			"type": "field_input",
