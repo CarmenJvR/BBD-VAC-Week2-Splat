@@ -147,7 +147,7 @@ export class Render {
                     src = tile;
                 }
     
-                this.mapElement.innerHTML += `<img id="${y}_${x}" class="image" src="/assets/${src}.png"/>`;
+                this.mapElement.innerHTML += `<img id="${y}_${x}" class="image" src="./assets/${src}.png"/>`;
                 row.push(src);
             }
 
