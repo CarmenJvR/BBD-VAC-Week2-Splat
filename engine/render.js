@@ -18,7 +18,6 @@ export class Render {
     }
 
 
-
     renderFirst() {
         this.stop = false;
         this.initMap(this.changes[0]);
@@ -57,7 +56,7 @@ export class Render {
             await Render.sleep(200);
         }
 
-       sessionStorage.setItem('endExec', Date.now());
+        sessionStorage.setItem('endExec', Date.now());
 
         switch (this.messageState) {
             case 0: this.GiveScore(); break;
@@ -66,8 +65,6 @@ export class Render {
             case 3: Render.modalAlert("Invalid bank deposit"); break;
             default : Render.modalAlert("Invalid solution"); break;
         }
-
-        
         
     }
 
