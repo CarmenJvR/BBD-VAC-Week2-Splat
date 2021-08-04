@@ -49,23 +49,23 @@
 
         <tr>
             <td>
-
+                <!--
                 <div class = "format">
                     <div id ="stop_timer" onclick="clearInterval(timerVar)">
                         <h3>Timer:</h3>
                     </div>
                          <div id="timer"></div>
               
-            </div>
-
+                </div>
+            -->
         <div class="row">
 
             <div class="column">
                 <div class="action-buttons">
-                    <button id="start" class = "button1">Start</button>
-                    <button id="reset" class = "button1">Stop</button>
-                    <button id="preview" class = "button1">Preview</button>
-                </div>
+                    <button id="start" class="button1"><i class="fa fa-play" aria-hidden="true"></i> Run</button>
+                    <button id="reset" class="button1"><i class="fa fa-stop" aria-hidden="true"></i> Stop</button>
+                    <button id="preview" class="button1"><i class="fa fa-eye" aria-hidden="true"></i> Preview</button>
+               </div>
                 <div id="blocklyDiv"></div>
             </div>
 
@@ -90,15 +90,15 @@
             </category>
 
             <category name="Decisions" colour="20">
+                <block type="reached_end"></block>
+                <block type="is_color"></block>
+                <block type="is_tile_ahead"></block>
+                <block type="is_tile_current"></block>
                 <block type="if_do_else"></block>
                 <block type="repeat_until"></block>
                 <block type="not"></block>
                 <block type="and"></block>
                 <block type="or"></block>
-                <block type="reached_end"></block>
-                <block type="is_color"></block>
-                <block type="is_tile_ahead"></block>
-                <block type="is_tile_current"></block>
             </category>
 
             <category name="Interact" colour="120">

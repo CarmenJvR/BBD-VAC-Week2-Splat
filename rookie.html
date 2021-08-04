@@ -80,28 +80,31 @@
     <br>
         <!-- BLOCKLY TOOLBOX -->
         <xml id="toolbox" style="display: none">
-            <category name="Control" colour="210">
+            <category name="Movement" colour="210">
                 <block type="start"></block>
                 <block type="walk"></block>
                 <block type="turn"></block>
-                <block type="deposit"></block>
+            </category>
+
+            <category name="Decisions" colour="20">
                 <block type="reached_end"></block>
                 <block type="is_color"></block>
                 <block type="is_tile_ahead"></block>
                 <block type="is_tile_current"></block>
-            </category>
-            <category name="Logic" colour="20">
                 <block type="if_do_else"></block>
+                <block type="repeat_until"></block>
                 <block type="not"></block>
                 <block type="and"></block>
                 <block type="or"></block>
             </category>
-            <category name="Loops" colour="120">
-                <block type="repeat_until"></block>
+
+            <category name="Interact" colour="120">
+                <block type="deposit"></block>               
             </category>
-            <category name="Functions" colour="290">
+
+            <category name="Advanced" colour="290">
                 <block type="function_def"></block>
-                 <block type="function_caller"></block>
+                <block type="function_caller"></block>
             </category>
         </xml>
 
