@@ -81,6 +81,13 @@ function setScoreTable(){
 
   let timeElapsed = Date.now() -  sessionStorage.getItem('startTime');
   timeElapsed = this.msToTime(timeElapsed);
+
+  // var liveElapsedTime;
+  // var elapsedTimeString = "00:00";
+
+  // liveElapsedTime = setInterval(() => {elapsedTimeString = msToTime(timeElapsed)});
+
+
   document.querySelector("#timeElapsedLabel").innerHTML = "Time Elapsed: " + timeElapsed.toString() ;
 }
 
