@@ -296,6 +296,11 @@ export class Engine {
             return;
         }
 
+        if (this.player.color == 9) {
+            alert("Can't deposit acid!");
+            return;
+        }
+
         let newTile = `Bank_B ${this.player.color} ${command.param1}`;
 
         this.map[pos.y][pos.x] = newTile;
