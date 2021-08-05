@@ -21,6 +21,7 @@ initialBlock();
 
 //Link buttons
 document.getElementById("start").onclick = function() {  
+    firstTimeExec = true;
     start();
 };
 
@@ -28,6 +29,7 @@ document.getElementById("reset").onclick = function() {
     firstTimeExec = true;
     reset();
 };
+
 
 document.getElementById("preview").onclick = function() {  
     //showSolution();
