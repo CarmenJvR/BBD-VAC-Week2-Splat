@@ -10,6 +10,7 @@ import { Direction } from "../models/direction.js";
 var render;
 var engine;
 var firstTimeExec = true;
+var allowKeyboard = true;
 
 //Reset
 reset();
@@ -49,6 +50,7 @@ document.getElementById("depositBtn").onclick = function() {
 };
 
 document.addEventListener('keydown', function(event) {
+    if(!allowKeyboard) return;
     const key = event.key; // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
     switch (event.key) {
         case "ArrowLeft":
@@ -113,6 +115,11 @@ document.addEventListener('keydown', function(event) {
             break;
     }
 });
+
+//allow keyboard after pop up is closed
+document.onclick = function() {  
+    allowKeyboard = true;
+};
 
 async function reset() {
 
@@ -185,11 +192,11 @@ async function move(code, dir) {
     let changes = engine.changes;
 
     popups();
+    
     render.changes = changes;
     render.messageState = res;
     await render.startRender();
     
-
     //--------------
     let tile = String(engine.map[engine.player.y][engine.player.x]);
     if(tile.startsWith("Bank_A") && !isButton) {
@@ -204,19 +211,21 @@ async function move(code, dir) {
         await render.startRender();
     }
     //-------------
-
+    
     if (res === 6) { //if reach finish in freeplay
         reset(); 
         firstTimeExec = true;
     } else {
         firstTimeExec = false;
     }
+
 }    
 
 async function popups(){
     let x = engine.player.x;
     let y = engine.player.y;
     let col = engine.player.color;
+    let dir = engine.player.dir;
 
     if(x==1 && y==3) {
         Render.modalAlert("What is this!?","I have encountered a paint splat! Wow!<br>Look what happened to me! I changed colour! I am no longer orange!  Yaayyy!");  
@@ -230,8 +239,26 @@ async function popups(){
         Render.modalAlert("What am I doing!", "I am not the right colour to pass! Focus!");
     } else if (x==1 && y==8 && col == Color.purple) {
         Render.modalAlert("PURPLE!!", "LOOK! I AM PURPLE!<br>Now I match the gate ahead!");
-    } else if (x==1 && y==8 && col == Color.purple) {
-        Render.modalAlert("PURPLE!!", "LOOK! I AM PURPLE!<br>Now I match the gate ahead!");
-    } 
-    
+    } else if (x==1 && y==9 && col != Color.purple) {
+        Render.modalAlert("No", "I have to be purple");
+    } else if (x==1 && y==12) {
+        Render.modalAlert("Not paint", "Oh no! I am not PURPLE!<br>I am now acid. On the bright side, maybe I can get through that locked gate.");
+    } else if (x==1 && y==11 && col != Color.purple) {
+        Render.modalAlert("No", "I am cearly not PURPLE!");
+    } else if (x==1 && y==14 && col == Color.acid) {
+        Render.modalAlert("Mwahaha", "When I am acid, I can melt through locked gates!<br>Mwahahaha!");
+    } else if (x==1 && y==16) {
+        Render.modalAlert("Yellow", "It's a colour");
+    } else if (x==2 && y==16 && col == Color.yellow && dir == Direction.East) {
+        Render.modalAlert("What is that up ahead!?", "That must be the a bank.<br>From the bank, I can deposit my current colour in one of the numbered collection sites and collect it there later.<br>Maybe I should store yellow in number 1. Yes!!! And then I should fetch the green splat! I am so smart!");
+    } else if (x==4 && y==16 && col == Color.green && dir == Direction.West) {
+        Render.modalAlert("Deposit time", "I wonder where I should deposit this green paint splat.");
+    } else if (x==13 && y==16 && dir == Direction.East) {
+        Render.modalAlert("Finally", "I am free.  Now I can go and play around and test whatever I want!");
+    } else if (x==13 && y==16 && dir == Direction.West) {
+        Render.modalAlert("Why", "Just why would I go back. I was free...");
+    } else {
+        return;
+    }
+    allowKeyboard = false;
 }
