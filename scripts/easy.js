@@ -81,7 +81,7 @@ async function start() {
 async function saveBlocks() {
           var xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
           localStorage.setItem("easyworkspace",Blockly.Xml.domToText(xml));
-          Blockly.mainWorkspace.clear();
+        //   Blockly.mainWorkspace.clear();
           console.log(localStorage.getItem("easyworkspace"));       
 }
 
