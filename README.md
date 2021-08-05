@@ -19,7 +19,9 @@ Option 1
 - Open the project in [vs code](https://code.visualstudio.com)
 - Use the [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) plugin in vs code
 
-
+Option 2
+ - Play the live version [here](https://saint-purple.github.io/) 
+ 
 ## Known bugs
 
 - The game seems to always crash when using firefox or any other non-chromium based browsers.
