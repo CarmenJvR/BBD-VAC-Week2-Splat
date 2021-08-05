@@ -49,10 +49,32 @@
           </div>
         </div>
 
-        <div id="tutorialHeadDiv">
-            <h2 id="tutorialHead">Start Interacting with our Sprites</h2>
-            <label> Move around in our Sanbox Level using the provided Blockley command, Movement Buttons or your Keyboard </label>
-        </div>
+                  <!-- Modal: for prompts-->
+                  <button id="modalPromptOpenBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#promptModal" style="visibility: hidden;" ></button>
+                  <div class="modal fade" id="promptModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header" id="mHead">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                              <div class="modal-body">
+                                Deposit in bank number:
+                                  <input type="number" class="form-control" id="bankNumber" aria-describedby="bankNum" min=1 max=4>
+                              </div>
+                              <div class="modal-footer border-top-0 d-flex justify-content-center">
+                                <button class="btn btn-primary" data-dismiss="modal" onclick="sessionStorage.setItem('bankNumber', document.getElementById('bankNumber').value); sessionStorage.setItem('bankFlag', 'true');">Submit</button>
+                              </div>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div id="tutorialHeadDiv">
+                      <h2 id="tutorialHead">Start Interacting with our Sprites</h2>
+                      <label> Move around in our Sanbox Level using the provided Blockley command, Movement Buttons or your Keyboard </label>
+                  </div>
+      
 
        <table style="width:100%">
 
@@ -143,6 +165,10 @@
         <script src="blockly/custom_blocks.js"></script> 
         <script src="blockly/injector.js"></script>
         <script type="module" src="./scripts/tutorial.js"></script>
+
+
+
+
         
     </body>
 </html>
