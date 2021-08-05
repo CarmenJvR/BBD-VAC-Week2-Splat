@@ -163,10 +163,14 @@ export class Engine {
             let color = Engine.getTileColor(tile);
 
             //Access denied
-            if (color !== this.player.color) {
+            if (color !== this.player.color && tile != "Gate 9 m") {
                 this.pushChanges();
 
                 return;
+            }
+
+            if (color == 9) {
+                this.map[newPos.y][newPos.x] = "Gate 9 m";
             }
 
             //Update player position

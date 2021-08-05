@@ -10,7 +10,7 @@ map : [
     ["Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall"],
     ["Wall", "Empty", "Empty", "Wall", "Splat 1", "Wall", "Splat 9", "Wall", "Splat 2", "Wall", "Splat 9", "Wall", "Bank_A", "Wall", "Wall", "Wall", "Wall", "Wall"],
     ["Wall", "Wall", "Empty", "Wall", "Empty", "Wall", "Empty", "Wall", "Empty", "Wall", "Empty", "Wall", "Empty", "Wall", "Wall", "Wall", "Wall", "Wall"],
-    ["Wall", "Wall", "Splat 3", "Empty", "Junction", "Empty", "Junction", "Empty", "Junction", "Empty", "Junction", "Empty", "Junction", "Gate 3", "Empty", "Empty", "Bank_B 0 1", "Wall"],
+    ["Wall", "Wall", "Splat 3", "Empty", "Junction", "Empty", "Junction", "Empty", "Junction", "Empty", "Junction", "Empty", "Junction", "Gate 9", "Empty", "Empty", "Bank_B 0 1", "Wall"],
     ["Wall", "Wall", "Wall", "Empty", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Empty", "Wall", "Wall", "Wall"],
     ["Wall", "Splat 4", "Empty", "Junction", "Wall", "Empty", "Empty", "Empty", "Bank_B 0 3", "Empty", "Empty", "Empty", "Empty", "Wall", "Empty", "Wall", "Wall", "Wall"],
     ["Wall", "Wall", "Wall", "Empty", "Wall", "Empty", "Wall", "Wall", "Wall", "Wall", "Wall", "Wall", "Empty", "Wall", "Empty", "Wall", "Wall", "Wall"],
@@ -146,10 +146,19 @@ solution : [
         new Command(Command.walk)
      ]),
      new Command(Command.turn, Turn.right),
-     new Command(Command.repeat_until, new Command(Command.is_tile_current, "Splat"), [
-        new Command(Command.walk)
-     ]),
+     new Command(Command.walk),
+     new Command(Command.walk),
+     new Command(Command.turn, Turn.right),
+     new Command(Command.walk),
+     new Command(Command.walk),
      new Command(Command.turn, Turn.back),
+     new Command(Command.walk),
+     new Command(Command.walk),
+     new Command(Command.turn, Turn.left),
+   //   new Command(Command.repeat_until, new Command(Command.is_tile_current, "Splat"), [
+   //      new Command(Command.walk)
+   //   ]),
+   //   new Command(Command.turn, Turn.back),
      new Command(Command.repeat_until, new Command(Command.is_tile_ahead, "Wall"), [
         new Command(Command.walk)
      ]),
