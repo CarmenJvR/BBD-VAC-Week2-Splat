@@ -10,7 +10,7 @@
 
 Splat is a proof of concept puzzle solving game, that combines colour based puzzle game mechanics with pseudo-code blocks.
 
-For more details on our solution, please take a look at our [presentation](https://github.com/JohannSchepers91/BBD_VW2021_Splat/blob/main/VacWeek2021Presentation.pdf).
+For more details on our solution, please take a look at our [presentation](https://docs.google.com/presentation/d/1h_VYOIhsqggFqxIOmxkIwJzTdnriI6s_MetsHbkgLbc/edit?usp=sharing).
 
 ## Running the project
 
@@ -19,8 +19,6 @@ Option 1
 - Open the project in [vs code](https://code.visualstudio.com)
 - Use the [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) plugin in vs code
 
-Option 2
-- Play the live version hosted on github pages [here](https://bbd-vac-week-2021-splat.github.io)
 
 ## Known bugs
 
