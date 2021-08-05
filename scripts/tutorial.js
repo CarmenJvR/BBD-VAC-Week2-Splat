@@ -125,6 +125,7 @@ document.getElementById("save").onclick = function() {
 
 document.getElementById("load").onclick = function() {
     loadBlocksAllLevels();
+}
 
 //allow keyboard after pop up is closed
 document.onclick = function() {  
@@ -273,7 +274,7 @@ async function popups(){
     }
     allowKeyboard = false;
 }
-   
+
 
 async function initialBlock() {
     var xmlText = "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"start\" id=\"2q[CLUsfD]Az*ng^MuYP\" x=\"150\" y=\"50\"></block></xml>";
