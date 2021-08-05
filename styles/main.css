@@ -301,3 +301,17 @@ div.tutorial-buttons{
 .tutorial-buttons button{
   position: static;
 }
+
+#tutorialHead{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: underline;
+}
+
+#tutorialHeadDiv{
+  color: white ;
+  background-color: rgba(0,0,0,0.6) !important;
+  padding: 20px;
+  border-radius: 5px ;
+  width: 90%;
+  margin: auto;
+}
