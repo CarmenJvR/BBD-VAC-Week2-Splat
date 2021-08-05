@@ -123,6 +123,7 @@ document.addEventListener('keydown', function(event) {
 
 
 document.getElementById("save").onclick = function() {
+    Render.modalAlert("","Your solution has been saved.");
     saveBlocksAllLevels(); 
 };
 

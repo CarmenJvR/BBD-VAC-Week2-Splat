@@ -25,6 +25,7 @@ document.getElementById("preview").onclick = function() {
 };
 
 document.getElementById("save").onclick = function() {
+    Render.modalAlert("","Your solution has been saved.");
     saveBlocksAllLevels(); 
 };
 
