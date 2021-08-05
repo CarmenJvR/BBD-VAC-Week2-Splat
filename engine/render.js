@@ -60,11 +60,13 @@ export class Render {
 
         switch (this.messageState) {
             case 0: this.GiveScore(); break;
-            case 1: Render.modalAlert("Stuck in infinite loop");  break;
-            case 2: Render.modalAlert("Did not reach the end"); break;
-            case 3: Render.modalAlert("Invalid bank deposit"); break;
-            case 4: Render.modalAlert("Cannot deposit acid"); break;
-            default : Render.modalAlert("Invalid solution"); break;
+            case 1: Render.modalAlert('<span style="color:red">Unsuccessful Attempt</span>',"Stuck in infinite loop");  break;
+            case 2: Render.modalAlert('<span style="color:red">Unsuccessful Attempt</span>',"Did not reach the end"); break;
+            case 3: Render.modalAlert('<span style="color:red">Unsuccessful Attempt</span>',"Invalid bank deposit"); break;
+            case 4: Render.modalAlert('<span style="color:red">Unsuccessful Attempt</span>',"Cannot deposit acid"); break;
+            case 5: break; //for use of free play buttons
+            case 6: Render.modalAlert("Success!","Now try it with code blocks!"); break; //success with free play
+            default : Render.modalAlert('<span style="color:red">Unsuccessful Attempt</span>',"Invalid solution"); break;
         }
         
     }
@@ -211,8 +213,8 @@ export class Render {
 
     }
 
-    static modalAlert(message) {
-        document.querySelector("div#mHead.modal-header").innerHTML = '<span style="color:red">Unsuccessful Attempt</span>';
+    static modalAlert(header, message) {
+        document.querySelector("div#mHead.modal-header").innerHTML = header;
         document.querySelector("div#mBod.modal-body").innerHTML = message;
         document.querySelector("button#modalOpenBtn").click();
     }
