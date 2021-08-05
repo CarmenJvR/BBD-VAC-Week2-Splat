@@ -22,6 +22,14 @@ document.getElementById("preview").onclick = function() {
     showSolution();
 };
 
+document.getElementById("save").onclick = function() {
+    saveBlocks(); 
+}
+
+document.getElementById("load").onclick = function() {
+    loadBlocks();
+}
+
 async function reset() {
 
     if (!!render) {
@@ -66,4 +74,19 @@ async function start() {
     render.changes = changes;
     render.messageState = res;
     await render.startRender();
+}
+
+async function saveBlocks() {
+    var xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
+    localStorage.setItem("normalworkspace",Blockly.Xml.domToText(xml));
+    Blockly.mainWorkspace.clear();
+    console.log(localStorage.getItem("normalworkspace"));       
+}
+
+async function loadBlocks() {
+    Blockly.mainWorkspace.clear();
+    var nameOfProject = document.getElementById("normalspace");
+    var xml = Blockly.Xml.textToDom(localStorage.getItem("normalspace"));
+    Blockly.Xml.domToWorkspace(Blockly.getMainWorkspace(), xml);
+    console.log("loaded");
 }
