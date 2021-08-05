@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="scripts/startSession.js"></script>
     </head>
    
@@ -29,6 +30,8 @@
             <a  href="dark.html" onclick="setLevel(4)">Dark Souls Level</a>
             <a  href="score-sheet.html"  >View Your Scores</a>
         </div>
+
+        
 
 
         <!-- Modal: for scores-->
@@ -56,13 +59,36 @@
                     <img src="./assets/tutorial-1.gif" alt="this slowpoke moves"  width="1000" /> 
                 </td>
             </tr>
+            <tr>
+              <td>
+                Get To Know The Sprites
+              </td>
+            </tr>
         </table>
+        <table>
+          <tr>
+                <td>  
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="This is a color splat! Move over the splat to change player color">
+                    <img src="./assets/Splat 1.png" alt="this slowpoke moves"  width="100" /> 
+                  </a>
+                </td>
+                <td>  
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="Gates require your player to match their color. ">
+                    <img src="./assets/Gate 1.png" alt="this slowpoke moves"  width="100" /> 
+                  </a>
+                </td>
+          </tr>
+      </table>
 
 </div>
         <script src="https://unpkg.com/blockly"></script>
         <script src="blockly/custom_blocks.js"></script> 
         <script src="blockly/injector.js"></script>
         <script type="module" src="./scripts/easy.js"></script>
-        
+        <script>
+          $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+          });
+          </script>
     </body>
 </html>
