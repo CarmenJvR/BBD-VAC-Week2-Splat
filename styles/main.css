@@ -288,3 +288,16 @@ div.blocklyToolboxDiv.blocklyNonSelectable{
   border-radius: 10px;
   margin-bottom: 20px;
 }
+
+div.tutorial-buttons{
+  background-color: rgba(0,0,0,0.4) !important;
+  padding: 10px;
+  width: 84%;
+  margin-left: 50%;
+}
+
+
+
+.tutorial-buttons button{
+  position: static;
+}

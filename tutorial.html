@@ -49,8 +49,22 @@
           </div>
         </div>
 
+        <div class="row">
+            <div class="column">
+              <div class="tutorial-buttons">
+                <button id="walkBtn" class="button1"><i class="fa fa-male" aria-hidden="true"></i> Walk</button>
+                <button id="turnBtn" class="button1"><i class="fa fa-undo" aria-hidden="true"></i> Turn</button>  
+                <button id="depositBtn" class="button1"><i class="fa fa-usd" aria-hidden="true"></i> Deposit</button>
+              </div>
+              <div id="map" class="map" style="margin-left: 50%;margin-bottom: 30px;"></div>
+                
+          </div>
+       </div>
 
-        <table id="tutorialTable">
+
+
+
+     <!--   <table id="tutorialTable">
             <tr>
                 <td>
                     <img src="./assets/tutorial-1.gif" alt="this slowpoke moves"  width="1000" /> 
@@ -58,11 +72,13 @@
             </tr>
         </table>
 
+      -->
+
 </div>
         <script src="https://unpkg.com/blockly"></script>
         <script src="blockly/custom_blocks.js"></script> 
         <script src="blockly/injector.js"></script>
-        <script type="module" src="./scripts/easy.js"></script>
+        <script type="module" src="./scripts/tutorial.js"></script>
         
     </body>
 </html>
