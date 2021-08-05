@@ -9,10 +9,10 @@ form.addEventListener('submit', (event) => {
 
 
         //Remove existing session storage items
-        sessionStorage.removeItem('email');
+     //   sessionStorage.removeItem('email');
 
         //Initialize session storage
-        sessionStorage.setItem('email', iemail);
+      //  sessionStorage.setItem('email', iemail);
 
       this.initializeSession();
 

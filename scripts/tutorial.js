@@ -10,6 +10,7 @@ import { Direction } from "../models/direction.js";
 var render;
 var engine;
 var firstTimeExec = true;
+var bankFlag = false ; 
 
 //Reset
 reset();
@@ -27,6 +28,7 @@ document.getElementById("reset").onclick = function() {
 document.getElementById("preview").onclick = function() {  
     //showSolution();
 };
+
 
 //Sandbox play buttons
 document.getElementById("walkBtn").onclick = function() {  
@@ -193,7 +195,14 @@ async function move(code, dir) {
     //--------------
     let tile = String(engine.map[engine.player.y][engine.player.x]);
     if(tile.startsWith("Bank_A") && !isButton) {
-        let index = prompt("Deposit in number:");
+        sessionStorage.setItem("bankFlag","false"); 
+        document.querySelector("button#modalPromptOpenBtn").click();
+        //let index = prompt("Deposit in number:");
+        while(sessionStorage.getItem("bankFlag") != "true"){
+            await new Promise(r => setTimeout(r, 500));
+            
+        }
+        let index = sessionStorage.getItem("bankNumber");
         code = "sxS[  new Command(Command.deposit, " + index + "), ]sxE";
         commands = Converter.convert(code);
         engine = new Engine( engine.map, engine.player, commands);
@@ -235,3 +244,10 @@ async function popups(){
     } 
     
 }
+
+function setFlag(){
+    bankFlag = !bankFlag;
+    console.log("in");
+}
+
+
