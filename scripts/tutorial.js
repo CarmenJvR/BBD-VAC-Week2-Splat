@@ -123,16 +123,6 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-
-document.getElementById("save").onclick = function() {
-    Render.modalAlert("","Your solution has been saved.");
-    saveBlocksAllLevels(); 
-};
-
-document.getElementById("load").onclick = function() {
-    loadBlocksAllLevels();
-}
-
 //allow keyboard after pop up is closed
 document.onclick = function() {  
     allowKeyboard = true;
@@ -251,7 +241,7 @@ async function popups(){
     let y = engine.player.y;
     let col = engine.player.color;
     let dir = engine.player.dir;
-
+    
     if(x==1 && y==3) {
         Render.modalAlert("What is this!?","I have encountered a paint splat! Wow!<br>Look what happened to me! I changed colour! I am no longer orange!  Yaayyy!");  
     } else if (x==1 && y==4) {
