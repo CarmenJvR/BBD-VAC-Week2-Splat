@@ -265,7 +265,7 @@ async function popups(){
     } else if (x==1 && y==16) {
         Render.modalAlert("Yellow", "It's a colour");
     } else if (x==2 && y==16 && col == Color.yellow && dir == Direction.East) {
-        Render.modalAlert("What is that up ahead!?", "That must be the a bank.<br>From the bank, I can deposit my current colour in one of the numbered collection sites and collect it there later.<br>Maybe I should store yellow in number 1. Yes!!! And then I should fetch the green splat! I am so smart!");
+        Render.modalAlert("What is that up ahead!?", "That must be a bank.<br>From the bank, I can deposit my current colour in one of the numbered collection sites and collect it there later.<br>Maybe I should store yellow in number 1. Yes!!! And then I should fetch the green splat! I am so smart!");
     } else if (x==4 && y==16 && col == Color.green && dir == Direction.West) {
         Render.modalAlert("Deposit time", "I wonder where I should deposit this green paint splat.");
     } else if (x==13 && y==16 && dir == Direction.East) {

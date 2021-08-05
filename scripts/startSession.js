@@ -28,7 +28,7 @@ function initializeSession(){
         sessionStorage.setItem('dsScore', 0);
         sessionStorage.setItem('normalScore', 0);
         sessionStorage.setItem('rookieScore', 0);
-        sessionStorage.setItem('currentLevel', 1);
+        sessionStorage.setItem('currentLevel', 0);
   
         /**
          * 1 : Easy

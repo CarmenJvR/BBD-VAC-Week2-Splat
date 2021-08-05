@@ -13,7 +13,7 @@ map : [
     ["Wall", "Splat 1", "Wall", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Wall"],
     ["Wall", "Gate 1", "Wall", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Wall"],
     ["Wall", "Empty", "Wall", "Wall", "Empty", "Wall", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Wall"],
-    ["Wall", "Mixer_A 0", "Splat 4", "Wall", "Mixer_A 1", "Wall_Pipe", "Mixer_B 0 1", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Wall"],
+    ["Wall", "Mixer_A 0", "Splat 4", "Wall", "Mixer_A 1", "Wall_Pipe", "Mixer_B 0 1", "Empty", "Empty", "Empty", "Gate 1", "Gate 2", "Gate 9", "Gate 3", "Gate 4", "Empty", "Empty", "Wall"],
     ["Wall", "Empty", "Wall", "Wall", "Empty", "Wall", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Wall"],
     ["Wall", "Mixer_B 0 0", "Wall", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Wall"],
     ["Wall", "Empty", "Wall", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Empty", "Wall"],
