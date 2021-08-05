@@ -2,6 +2,7 @@ import { Converter } from "../blockly/converter.js";
 import { Engine } from "../engine/engine.js";
 import { Render } from "../engine/render.js";
 import {  LEVEL_0 } from "../levels/level0.js"
+import { Color } from "../models/color.js";
 import { Command } from "../models/command.js";
 import { Direction } from "../models/direction.js";
 
@@ -19,6 +20,7 @@ document.getElementById("start").onclick = function() {
 };
 
 document.getElementById("reset").onclick = function() {  
+    firstTimeExec = true;
     reset();
 };
 
@@ -28,20 +30,21 @@ document.getElementById("preview").onclick = function() {
 
 //Sandbox play buttons
 document.getElementById("walkBtn").onclick = function() {  
-    move("sxS[  new Command(Command.walk),]sxE");
+
+    move("sxS[  new Command(Command.walk),]sxE", null);
 };
 
 document.getElementById("turnBtn").onclick = function() {  
-    move("sxS[  new Command(Command.turn, Turn.left), ]sxE");
+    move("sxS[  new Command(Command.turn, Turn.left), ]sxE", null);
 };
 
 document.getElementById("depositBtn").onclick = function() {  
     let tile = String(engine.map[engine.player.y][engine.player.x]);
     if(tile.startsWith("Bank_A")) {
         let index = prompt("Deposit in number:");
-        move("sxS[  new Command(Command.deposit, " + index + "), ]sxE");
+        move("sxS[  new Command(Command.deposit, " + index + "), ]sxE", null);
     } else {
-        Render.modalAlert("What are you doing?", "This is not the bank!")
+        Render.modalAlert("What are you doing?", "This is not the bank!");
     }
 };
 
@@ -49,19 +52,63 @@ document.addEventListener('keydown', function(event) {
     const key = event.key; // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
     switch (event.key) {
         case "ArrowLeft":
+            event.preventDefault();
             //engine.player.dir = Direction.West;
             move("sxS[  new Command(Command.walk),]sxE", Direction.West);
             break;
         case "ArrowRight":
-            move("sxS[  new Command(Command.walk),]sxE", Direction.East)
+            event.preventDefault();
+            move("sxS[  new Command(Command.walk),]sxE", Direction.East);
             // Right pressed
             break;
         case "ArrowUp":
-            move("sxS[  new Command(Command.walk),]sxE", Direction.North)
+            event.preventDefault();
+            move("sxS[  new Command(Command.walk),]sxE", Direction.North);
             // Up pressed
             break;
         case "ArrowDown":
-            move("sxS[  new Command(Command.walk),]sxE", Direction.South)
+            event.preventDefault();
+            move("sxS[  new Command(Command.walk),]sxE", Direction.South);
+            // Down pressed
+            break;
+        case "a":
+            event.preventDefault();
+            //engine.player.dir = Direction.West;
+            move("sxS[  new Command(Command.walk),]sxE", Direction.West);
+            break;
+        case "d":
+            event.preventDefault();
+            move("sxS[  new Command(Command.walk),]sxE", Direction.East);
+            // Right pressed
+            break;
+        case "w":
+            event.preventDefault();
+            move("sxS[  new Command(Command.walk),]sxE", Direction.North);
+            // Up pressed
+            break;
+        case "s":
+            event.preventDefault();
+            move("sxS[  new Command(Command.walk),]sxE", Direction.South);
+            // Down pressed
+            break;
+        case "A":
+            event.preventDefault();
+            //engine.player.dir = Direction.West;
+            move("sxS[  new Command(Command.walk),]sxE", Direction.West);
+            break;
+        case "D":
+            event.preventDefault();
+            move("sxS[  new Command(Command.walk),]sxE", Direction.East);
+            // Right pressed
+            break;
+        case "W":
+            event.preventDefault();
+            move("sxS[  new Command(Command.walk),]sxE", Direction.North);
+            // Up pressed
+            break;
+        case "S":
+            event.preventDefault();
+            move("sxS[  new Command(Command.walk),]sxE", Direction.South);
             // Down pressed
             break;
     }
@@ -117,7 +164,12 @@ async function start() {
 
 async function move(code, dir) {
 
-    //let code = "sxS[  new Command(Command.walk),]sxE";
+    let isButton = false;
+    if(dir === null) { //buttons not arrows
+        isButton = true;
+        if (firstTimeExec) dir = LEVEL_0.player.dir;
+        else dir = engine.player.dir;
+    }
     let commands = Converter.convert(code);
     // alert(commands);
     
@@ -132,13 +184,15 @@ async function move(code, dir) {
     let res = engine.start(1);
     let changes = engine.changes;
 
+    popups();
     render.changes = changes;
     render.messageState = res;
     await render.startRender();
     
+
     //--------------
     let tile = String(engine.map[engine.player.y][engine.player.x]);
-    if(tile.startsWith("Bank_A")) {
+    if(tile.startsWith("Bank_A") && !isButton) {
         let index = prompt("Deposit in number:");
         code = "sxS[  new Command(Command.deposit, " + index + "), ]sxE";
         commands = Converter.convert(code);
@@ -149,8 +203,7 @@ async function move(code, dir) {
         render.messageState = res;
         await render.startRender();
     }
-    
-//-------------
+    //-------------
 
     if (res === 6) { //if reach finish in freeplay
         reset(); 
@@ -159,3 +212,26 @@ async function move(code, dir) {
         firstTimeExec = false;
     }
 }    
+
+async function popups(){
+    let x = engine.player.x;
+    let y = engine.player.y;
+    let col = engine.player.color;
+
+    if(x==1 && y==3) {
+        Render.modalAlert("What is this!?","I have encountered a paint splat! Wow!<br>Look what happened to me! I changed colour! I am no longer orange!  Yaayyy!");  
+    } else if (x==1 && y==4) {
+        Render.modalAlert("What is this!?", "This is a gate! But I can only pass if my colour matches the gate's colour.<br>Lucky me! I am the right colour!");
+    }  else if (x==1 && y==6 && col == Color.red) {
+        Render.modalAlert("What is this!?", "This is a mixer! Look what happened up a head. The colour in the jar changed. Now try to mix another colour here on the mixer.");
+    } else if (x==1 && y==6 && col == Color.blue) {
+        Render.modalAlert("I'm good!", "I have just mixed two colours! Look at the jar!<br>PURPLE!!!!! I WANT PURPLE!!!");
+    } else if (x==1 && y==5 && col != Color.red) {
+        Render.modalAlert("What am I doing!", "I am not the right colour to pass! Focus!");
+    } else if (x==1 && y==8 && col == Color.purple) {
+        Render.modalAlert("PURPLE!!", "LOOK! I AM PURPLE!<br>Now I match the gate ahead!");
+    } else if (x==1 && y==8 && col == Color.purple) {
+        Render.modalAlert("PURPLE!!", "LOOK! I AM PURPLE!<br>Now I match the gate ahead!");
+    } 
+    
+}

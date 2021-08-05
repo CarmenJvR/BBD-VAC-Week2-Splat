@@ -169,7 +169,7 @@ export class Render {
            3 Hard < 55200
            4 DarkSouls < 99200
            5 Normal < 37300 ms
-           6 Rookie Medium < 36100
+           6 Rookie Medium < 34000
         */
 
 
@@ -183,7 +183,7 @@ export class Render {
             case 3: solutionTime = 55200; maxMark = 25; break;           
             case 4: solutionTime = 99200; maxMark = 30; break;  
             case 5: solutionTime = 37300; maxMark = 10; break;  
-            case 6: solutionTime = 36100; maxMark = 15; break;        
+            case 6: solutionTime = 34000; maxMark = 15; break;        
             default :  break;          
         }
         
