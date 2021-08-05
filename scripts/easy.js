@@ -9,6 +9,8 @@ var render;
 //Reset
 reset();
 
+initialBlock();
+
 //Link buttons
 document.getElementById("start").onclick = function() {  
     start();
@@ -23,12 +25,12 @@ document.getElementById("preview").onclick = function() {
 };
 
 document.getElementById("save").onclick = function() {
-    saveBlocks(); 
-}
+    saveBlocksAllLevels(); 
+};
 
 document.getElementById("load").onclick = function() {
-    loadBlocks();
-}
+    loadBlocksAllLevels();
+};
 
 async function reset() {
 
@@ -78,6 +80,12 @@ async function start() {
     await render.startRender();
 }
 
+async function initialBlock() {
+    var xmlText = "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"start\" id=\"2q[CLUsfD]Az*ng^MuYP\" x=\"150\" y=\"50\"></block></xml>";
+    var xml = Blockly.Xml.textToDom(xmlText);
+    Blockly.Xml.domToWorkspace(Blockly.getMainWorkspace(), xml);
+}
+
 async function saveBlocks() {
           var xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
           localStorage.setItem("easyworkspace",Blockly.Xml.domToText(xml));
@@ -89,6 +97,21 @@ async function loadBlocks() {
     Blockly.mainWorkspace.clear();
     var nameOfProject = document.getElementById("easyworkspace");
     var xml = Blockly.Xml.textToDom(localStorage.getItem("easyworkspace"));
+    Blockly.Xml.domToWorkspace(Blockly.getMainWorkspace(), xml);
+    console.log("loaded");
+}
+
+async function saveBlocksAllLevels() {
+    var xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
+    localStorage.setItem("savedworkspace",Blockly.Xml.domToText(xml));
+  //   Blockly.mainWorkspace.clear();
+    console.log(localStorage.getItem("savedworkspace"));       
+}
+
+async function loadBlocksAllLevels() {
+    Blockly.mainWorkspace.clear();
+    var nameOfProject = document.getElementById("savedworkspace");
+    var xml = Blockly.Xml.textToDom(localStorage.getItem("savedworkspace"));
     Blockly.Xml.domToWorkspace(Blockly.getMainWorkspace(), xml);
     console.log("loaded");
 }
